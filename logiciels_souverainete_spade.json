@@ -681,7 +681,11 @@
         "AWS",
         "USA"
       ],
-      "compatibilite": null,
+      "compatibilite": [
+        "WebBase",
+        "iOS",
+        "Android"
+      ],
       "portabilite": null,
       "securite": "Moyen",
       "ux": 7,

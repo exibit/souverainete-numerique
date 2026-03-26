@@ -1,0 +1,14 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header always unset Content-Security-Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://matomo.spade.be 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; object-src 'none'; base-uri 'self'; connect-src 'self' https://matomo.spade.be; font-src 'self' data: https://cdn.jsdelivr.net https://fonts.gstatic.com; frame-src 'self'; img-src 'self' data: https://www.google.com https://www.spade.be https://lh3.googleusercontent.com; manifest-src 'self'; media-src 'self'; worker-src 'self' blob:"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /souverainete/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>

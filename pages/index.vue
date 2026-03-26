@@ -126,7 +126,13 @@ function toggleDemarche(value: string) {
 </script>
 
 <template>
-  <div class="min-h-screen text-white" style="background:#000419">
+  <div class="min-h-screen text-white relative">
+
+    <!-- Halo de fond -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-32 -right-32 w-[800px] h-[800px] rounded-full"
+           style="background: radial-gradient(circle, #0312B3 0%, #01084D 45%, transparent 70%); opacity: 0.35" />
+    </div>
 
     <!-- ── Hero ── -->
     <div class="max-w-[1240px] mx-auto px-6 pt-16 pb-16">

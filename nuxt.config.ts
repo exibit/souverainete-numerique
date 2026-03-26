@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     gray: 'zinc'
   },
   app: {
+    baseURL: '/souverainete',
     head: {
       title: 'Spade · Démarche de souveraineté numérique',
       meta: [

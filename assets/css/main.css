@@ -1,0 +1,90 @@
+/* ── Geomanist ────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-thin-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-thin-webfont.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-extralight-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-extralight-webfont.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-light-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-book-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-book-webfont.woff') format('woff');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-regular-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-medium-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-bold-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-black-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-black-webfont.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geomanist';
+  src: url('~/assets/fonts/Geomanist/geomanist-ultra-webfont.woff2') format('woff2'),
+       url('~/assets/fonts/Geomanist/geomanist-ultra-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg:      #111820;
+  --color-green:   #7FB069;
+  --color-red:     #EC6B40;
+  --color-citron:  #FFFBBD;
+  --color-caramel: #E6AA68;
+}
+
+body {
+  font-family: 'Geomanist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+}
+
+.font-mono {
+  font-family: 'SF Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+}

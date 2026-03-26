@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souveraineté Numérique — Comparaison Logiciels</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f2f5;
+      --surface: #ffffff;
+      --surface2: #f8f9fb;
+      --border: #e2e6ea;
+      --text: #1a202c;
+      --text-muted: #718096;
+      --text-light: #a0aec0;
+      --primary: #1a56db;
+      --primary-light: #e8f0fe;
+
+      --state-used: #1a56db;
+      --state-study: #d97706;
+      --state-abandoned: #6b7280;
+      --state-backlog: #9ca3af;
+
+      --sov-fr: #059669;
+      --sov-eu: #0891b2;
+      --sov-us: #dc2626;
+      --sov-other: #7c3aed;
+
+      --open-yes: #059669;
+      --open-partial: #d97706;
+      --open-no: #dc2626;
+
+      --sec-fort: #059669;
+      --sec-moyen: #d97706;
+      --sec-faible: #dc2626;
+
+      --challenger-bg: #fffbeb;
+      --challenger-border: #fcd34d;
+      --challenged-bg: #eff6ff;
+      --challenged-border: #93c5fd;
+
+      --radius: 12px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.05);
+      --shadow-hover: 0 4px 16px rgba(0,0,0,.12), 0 8px 32px rgba(0,0,0,.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+      color: white;
+      padding: 40px 32px 32px;
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .header-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 99px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 15px;
+      color: rgba(255,255,255,.65);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,.6);
+    }
+    .meta-chip strong { color: rgba(255,255,255,.9); }
+    .meta-note {
+      background: rgba(255,255,255,.1);
+      border-left: 3px solid rgba(255,255,255,.3);
+      padding: 8px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 12px;
+      color: rgba(255,255,255,.6);
+      margin-top: 16px;
+      max-width: 700px;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+    }
+    .stat {
+      padding: 18px 28px;
+      border-right: 1px solid var(--border);
+      min-width: 120px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .stat:first-child { padding-left: 0; }
+    .stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--primary);
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-top: 4px;
+    }
+
+    /* ── FILTERS ── */
+    .filters-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .filters-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow-x: auto;
+      height: 56px;
+    }
+    .filter-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .filter-sep {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .filter-chips {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .chip {
+      padding: 5px 14px;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+    .search-wrap {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .search-input {
+      padding: 7px 14px 7px 36px;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a0aec0' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
+      transition: border-color .15s;
+      width: 200px;
+    }
+    .search-input:focus { border-color: var(--primary); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    /* ── DEMARCHE SECTION ── */
+    .demarche-section {
+      margin-bottom: 40px;
+    }
+    .demarche-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .demarche-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: var(--primary-light);
+    }
+    .demarche-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .demarche-count {
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 2px 10px;
+    }
+
+    .demarche-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .demarche-layout { grid-template-columns: 1fr; }
+    }
+
+    .challenged-col { position: relative; }
+    .col-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .col-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .challengers-col { }
+    .challengers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      transition: box-shadow .2s, transform .2s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .card.challenged {
+      border-color: var(--challenged-border);
+      background: var(--challenged-bg);
+    }
+    .card.challenger {
+      border-color: var(--border);
+    }
+    .card.state-abandonne {
+      opacity: .65;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .card-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-flag {
+      font-size: 18px;
+      line-height: 1;
+    }
+    .state-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .state-Utilisé     { background: #dbeafe; color: var(--state-used); }
+    .state-étude       { background: #fef3c7; color: var(--state-study); }
+    .state-Abandonné   { background: #f3f4f6; color: var(--state-abandoned); }
+    .state-backlog     { background: #f3f4f6; color: var(--state-backlog); }
+
+    /* indicators row */
+    .card-indicators {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .badge-open-Oui     { background: #d1fae5; color: var(--open-yes); }
+    .badge-open-Partiel { background: #fef3c7; color: var(--open-partial); }
+    .badge-open-Non     { background: #fee2e2; color: var(--open-no); }
+    .badge-open-null    { background: #f3f4f6; color: var(--text-light); }
+
+    .badge-sec-Fort   { background: #d1fae5; color: var(--sec-fort); }
+    .badge-sec-Moyen  { background: #fef3c7; color: var(--sec-moyen); }
+    .badge-sec-Faible { background: #fee2e2; color: var(--sec-faible); }
+    .badge-sec-null   { background: #f3f4f6; color: var(--text-light); }
+
+    .badge-port-Importante   { background: #d1fae5; color: var(--sec-fort); }
+    .badge-port-Satisfaisante{ background: #dbeafe; color: #1d4ed8; }
+    .badge-port-Faible       { background: #fee2e2; color: var(--sec-faible); }
+    .badge-port-null         { background: #f3f4f6; color: var(--text-light); }
+
+    /* UX score */
+    .ux-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      background: #f0f4ff;
+      color: var(--primary);
+    }
+
+    /* cost */
+    .card-cost {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .card-cost strong { color: var(--text); }
+    .free-badge { color: var(--open-yes); font-weight: 700; }
+
+    /* servers */
+    .card-meta-row {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .card-meta-row svg { flex-shrink: 0; margin-top: 1px; }
+    .server-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .server-tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .server-tag.self { background: #d1fae5; border-color: #6ee7b7; color: var(--open-yes); }
+    .server-tag.eu   { background: #dbeafe; border-color: #93c5fd; color: #1d4ed8; }
+    .server-tag.us   { background: #fee2e2; border-color: #fca5a5; color: var(--sec-faible); }
+
+    /* compat */
+    .compat-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 2px;
+    }
+    .compat-icon {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* card footer */
+    .card-footer {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .notion-link {
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .notion-link:hover { text-decoration: underline; }
+    .creation-year {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* standalone section (no demarche) */
+    .standalone-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    /* empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state p { font-size: 15px; margin-top: 8px; }
+
+    /* ── LEGEND ── */
+    .legend {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .legend-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 14px;
+    }
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px 32px;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* scroll to top */
+    .scroll-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(26,86,219,.4);
+      z-index: 100;
+    }
+    .scroll-top.visible { display: flex; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-tag">Souveraineté Numerique</div>
+    <h1>Comparaison des Logiciels</h1>
+    <p>Analyse et comparaison des alternatives souveraines aux outils numeriques actuellement utilises.</p>
+    <div class="header-meta">
+      <div class="meta-chip"><strong id="stat-total">—</strong>&nbsp;logiciels analyses</div>
+      <div class="meta-chip"><strong id="stat-demarches">—</strong>&nbsp;demarches</div>
+      <div class="meta-chip">Genere le&nbsp;<strong id="stat-date">—</strong></div>
+    </div>
+    <div class="meta-note" id="meta-note"></div>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner" id="stats-inner"></div>
+</div>
+
+<div class="filters-bar">
+  <div class="filters-inner">
+    <span class="filter-label">Filtres</span>
+    <div class="filter-sep"></div>
+
+    <div class="filter-chips" id="filter-demarche">
+      <button class="chip active" data-filter="demarche" data-value="">Toutes les demarches</button>
+    </div>
+
+    <div class="filter-sep"></div>
+
+    <div class="filter-chips" id="filter-etat">
+      <button class="chip active" data-filter="etat" data-value="">Tous les etats</button>
+    </div>
+
+    <div class="filter-sep"></div>
+
+    <div class="filter-chips" id="filter-open">
+      <button class="chip active" data-filter="open" data-value="">Code ouvert</button>
+      <button class="chip" data-filter="open" data-value="Oui">Oui</button>
+      <button class="chip" data-filter="open" data-value="Partiel">Partiel</button>
+      <button class="chip" data-filter="open" data-value="Non">Non</button>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="Rechercher...">
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="empty-state">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+    <p>Chargement...</p>
+  </div>
+</main>
+
+<button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+const DATA = {
+  "generated_at": "2026-03-25",
+  "source": "Notion > Souverainete > Logiciels",
+  "note": "Fiches exclues : NextCloud (assignee mais vide), Adobe (en attente), Google Drive (en attente), Gmail (en attente)",
+  "logiciels": [
+    {"nom":"Slack","etat":"Utilise","nationalite":"🇺🇸","creation":2013,"cout_annuel_eur":1000,"code_ouvert":"Non","serveurs":["USA","AWS"],"compatibilite":["iOS","Android","macOS","WebBase","Windows","Linux"],"portabilite":"Satisfaisante","securite":"Fort","ux":8,"challenge":{"role":"challenge","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30950caf484d800b9172e5f9a827a73b"},
+    {"nom":"Figma","etat":"Utilise","nationalite":"🇺🇸","creation":2012,"cout_annuel_eur":1200,"code_ouvert":"Non","serveurs":["AWS","EU"],"compatibilite":["Android","iOS","Windows","macOS","Linux"],"portabilite":"Satisfaisante","securite":null,"ux":9,"challenge":{"role":"challenge","demarche":"Prototypage UI"},"notion_url":"https://www.notion.so/30d50caf484d8059a6c4dd2a3a4e641b"},
+    {"nom":"Dropbox","etat":"Utilise","nationalite":"🇺🇸","creation":2007,"cout_annuel_eur":900,"code_ouvert":null,"serveurs":["AWS","USA","Irlande"],"compatibilite":["WebBase","iOS","Android","macOS","Windows","Linux"],"portabilite":"Faible","securite":"Fort","ux":8,"challenge":{"role":"challenge","demarche":"Service cloud"},"notion_url":"https://www.notion.so/30b50caf484d8019988fecd790b337c4"},
+    {"nom":"Gitlab","etat":"Utilise","nationalite":"🇺🇸","creation":2011,"cout_annuel_eur":0,"code_ouvert":"Partiel","serveurs":["Self hosted"],"compatibilite":["WebBase"],"portabilite":"Satisfaisante","securite":"Moyen","ux":8,"challenge":{"role":"challenge","demarche":null},"notion_url":"https://www.notion.so/30d50caf484d80e791a9c14a07dbde34"},
+    {"nom":"Mattermost","etat":"Abandonne","nationalite":"🇺🇸","creation":2015,"cout_annuel_eur":null,"code_ouvert":"Oui","serveurs":["Self hosted"],"compatibilite":["WebBase","iOS","Android","macOS","Windows","Linux"],"portabilite":"Satisfaisante","securite":"Fort","ux":6,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30a50caf484d8053bd46f279e84a65cb"},
+    {"nom":"FramaTeam","etat":"A l'etude","nationalite":"🇫🇷","creation":2003,"cout_annuel_eur":null,"code_ouvert":"Oui","serveurs":["Germany","EU","Self hosted"],"compatibilite":["Linux","Android","macOS","Windows","iOS"],"portabilite":"Satisfaisante","securite":"Faible","ux":7,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30a50caf484d807ebeb5d8420c555d41"},
+    {"nom":"Treebal","etat":"A l'etude","nationalite":"🇫🇷","creation":2021,"cout_annuel_eur":1500,"code_ouvert":"Partiel","serveurs":["EU","HDS google cloud platform"],"compatibilite":["macOS","Windows","iOS","Android","WebBase"],"portabilite":null,"securite":"Fort","ux":null,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30950caf484d808bbc46ea6463f2bea3"},
+    {"nom":"Wire","etat":"A l'etude","nationalite":"🇨🇭","creation":2014,"cout_annuel_eur":900,"code_ouvert":"Oui","serveurs":["EU","AWS","HDS google cloud platform","Self hosted"],"compatibilite":["iOS","Android","macOS","Windows","WebBase"],"portabilite":"Satisfaisante","securite":"Fort","ux":null,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30950caf484d80d4ba0cf68fb3386105"},
+    {"nom":"Element","etat":"A l'etude","nationalite":"🇬🇧","creation":2016,"cout_annuel_eur":1200,"code_ouvert":"Oui","serveurs":["UK","Self hosted"],"compatibilite":["iOS","Android","macOS","Linux","Windows"],"portabilite":"Satisfaisante","securite":"Fort","ux":8,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30a50caf484d80a4b347c3c5a3b7a6c7"},
+    {"nom":"Kchat","etat":"A l'etude","nationalite":"🇨🇭","creation":2023,"cout_annuel_eur":1200,"code_ouvert":"Non","serveurs":["Suisse","EU"],"compatibilite":["Windows","macOS","Linux","Android","iOS"],"portabilite":"Faible","securite":"Moyen","ux":6,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/30b50caf484d8016909ef40f4821325b"},
+    {"nom":"Matrix.org","etat":"A l'etude","nationalite":"🇬🇧","creation":2017,"cout_annuel_eur":360,"code_ouvert":"Oui","serveurs":["EU","Self hosted"],"compatibilite":["WebBase"],"portabilite":"Satisfaisante","securite":"Fort","ux":null,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/32550caf484d80c48d2bfe52c4ab08f1"},
+    {"nom":"Stackfield","etat":"backlog","nationalite":"🇩🇪","creation":2013,"cout_annuel_eur":1320,"code_ouvert":null,"serveurs":["EU"],"compatibilite":["WebBase","iOS","macOS","Android"],"portabilite":"Satisfaisante","securite":"Fort","ux":7,"challenge":{"role":"challenger","demarche":"Messagerie professionnelle"},"notion_url":"https://www.notion.so/32d50caf484d8039a28de66c699e1969"},
+    {"nom":"kDrive","etat":"A l'etude","nationalite":"🇨🇭","creation":2023,"cout_annuel_eur":0,"code_ouvert":"Non","serveurs":["Suisse"],"compatibilite":["macOS","iOS","WebBase","Windows"],"portabilite":"Importante","securite":"Fort","ux":8,"challenge":{"role":"challenger","demarche":"Service cloud"},"notion_url":"https://www.notion.so/31e50caf484d8082aca5d47a693bf82d"},
+    {"nom":"Perplexity.ai","etat":"backlog","nationalite":"🇺🇸","creation":2022,"cout_annuel_eur":216,"code_ouvert":"Non","serveurs":["AWS","USA"],"compatibilite":null,"portabilite":null,"securite":"Moyen","ux":7,"challenge":{"role":null,"demarche":null},"notion_url":"https://www.notion.so/32d50caf484d80149b0ac76a43520168"}
+  ]
+};
+
+// ── State ──
+let activeFilters = { demarche: '', etat: '', open: '' };
+let searchQuery = '';
+
+// ── Helpers ──
+const byId = id => document.getElementById(id);
+
+function getStateLabel(etat) {
+  if (!etat) return 'Inconnu';
+  if (etat === 'Utilise') return 'Utilise';
+  if (etat === 'Abandonne') return 'Abandonne';
+  if (etat === 'backlog') return 'Backlog';
+  return etat;
+}
+function getStateClass(etat) {
+  if (etat === 'Utilise') return 'state-Utilisé';
+  if (etat === 'Abandonne') return 'state-Abandonné';
+  if (etat === 'backlog') return 'state-backlog';
+  return 'state-étude';
+}
+
+function serverClass(s) {
+  const sl = s.toLowerCase();
+  if (sl === 'self hosted') return 'self';
+  if (['eu','france','germany','irlande','suisse','uk'].some(k => sl.includes(k))) return 'eu';
+  if (['usa','aws'].some(k => sl.includes(k))) return 'us';
+  return '';
+}
+
+function svgIcon(name) {
+  const icons = {
+    server: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
+    device: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    link: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+  };
+  return icons[name] || '';
+}
+
+function renderCard(logiciel, isChallenged) {
+  const stateClass = getStateClass(logiciel.etat);
+  const stateLabel = getStateLabel(logiciel.etat);
+  const cardClass = isChallenged ? 'challenged' : 'challenger';
+  const abandonClass = (logiciel.etat === 'Abandonne') ? ' state-abandonne' : '';
+
+  // Cost
+  const costHtml = logiciel.cout_annuel_eur === 0
+    ? `<span class="free-badge">Gratuit</span>`
+    : logiciel.cout_annuel_eur
+      ? `<strong>${logiciel.cout_annuel_eur.toLocaleString('fr-FR')} €</strong> / an`
+      : `<span style="color:var(--text-light)">Cout non renseigne</span>`;
+
+  // Open source badge
+  const openKey = logiciel.code_ouvert === null ? 'null' : logiciel.code_ouvert;
+  const openLabel = logiciel.code_ouvert === null ? 'Open ?' : `Open source : ${logiciel.code_ouvert}`;
+  const openHtml = `<span class="badge badge-open-${openKey}">${openLabel}</span>`;
+
+  // Security badge
+  const secKey = logiciel.securite === null ? 'null' : logiciel.securite;
+  const secLabel = logiciel.securite ? `Securite : ${logiciel.securite}` : 'Securite ?';
+  const secHtml = `<span class="badge badge-sec-${secKey}">${secLabel}</span>`;
+
+  // Portability badge
+  const portKey = logiciel.portabilite === null ? 'null' : logiciel.portabilite;
+  const portLabel = logiciel.portabilite ? `Portabilite : ${logiciel.portabilite}` : 'Portabilite ?';
+  const portHtml = `<span class="badge badge-port-${portKey}">${portLabel}</span>`;
+
+  // UX
+  const uxHtml = logiciel.ux !== null
+    ? `<span class="ux-score">UX ${logiciel.ux}/10</span>`
+    : '';
+
+  // Servers
+  const serversHtml = (logiciel.serveurs || []).map(s =>
+    `<span class="server-tag ${serverClass(s)}">${s}</span>`
+  ).join('');
+
+  // Compat
+  const compatHtml = (logiciel.compatibilite || []).map(c =>
+    `<span class="compat-icon">${c}</span>`
+  ).join('');
+
+  return `
+    <div class="card ${cardClass}${abandonClass}">
+      <div class="card-top">
+        <div class="card-name">
+          <span class="card-flag">${logiciel.nationalite || ''}</span>
+          ${logiciel.nom}
+        </div>
+        <span class="state-badge ${stateClass}">${stateLabel}</span>
+      </div>
+
+      <div class="card-indicators">
+        ${openHtml}
+        ${secHtml}
+        ${portHtml}
+        ${uxHtml}
+      </div>
+
+      <div class="card-cost">${costHtml}</div>
+
+      ${serversHtml ? `
+        <div class="card-meta-row">
+          ${svgIcon('server')}
+          <div class="server-tags">${serversHtml}</div>
+        </div>
+      ` : ''}
+
+      ${compatHtml ? `
+        <div class="card-meta-row">
+          ${svgIcon('device')}
+          <div class="compat-icons">${compatHtml}</div>
+        </div>
+      ` : ''}
+
+      <div class="card-footer">
+        <a class="notion-link" href="${logiciel.notion_url}" target="_blank" rel="noopener">
+          ${svgIcon('link')} Fiche Notion
+        </a>
+        <span class="creation-year">Depuis ${logiciel.creation}</span>
+      </div>
+    </div>
+  `;
+}
+
+// ── Init filters ──
+function buildFilters() {
+  const demarches = [...new Set(DATA.logiciels.map(l => l.challenge?.demarche).filter(Boolean))];
+  const etats = [...new Set(DATA.logiciels.map(l => l.etat).filter(Boolean))];
+
+  const demarcheContainer = byId('filter-demarche');
+  demarches.forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.dataset.filter = 'demarche';
+    btn.dataset.value = d;
+    btn.textContent = d;
+    demarcheContainer.appendChild(btn);
+  });
+
+  const etatContainer = byId('filter-etat');
+  etats.forEach(e => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.dataset.filter = 'etat';
+    btn.dataset.value = e;
+    btn.textContent = getStateLabel(e);
+    etatContainer.appendChild(btn);
+  });
+}
+
+// ── Stats bar ──
+function buildStats() {
+  const logs = DATA.logiciels;
+  const byEtat = {};
+  logs.forEach(l => { byEtat[l.etat] = (byEtat[l.etat] || 0) + 1; });
+  const demarches = [...new Set(logs.map(l => l.challenge?.demarche).filter(Boolean))];
+
+  const stats = [
+    { value: logs.length, label: 'Logiciels' },
+    { value: demarches.length, label: 'Demarches' },
+    { value: byEtat['Utilise'] || 0, label: 'Utilises' },
+    { value: (byEtat["A l'etude"] || 0), label: 'A l\'etude' },
+    { value: byEtat['backlog'] || 0, label: 'Backlog' },
+    { value: byEtat['Abandonne'] || 0, label: 'Abandonnes' },
+    { value: logs.filter(l => l.code_ouvert === 'Oui').length, label: 'Open Source' },
+    { value: logs.filter(l => l.nationalite && !['🇺🇸'].includes(l.nationalite)).length, label: 'Non-US' },
+  ];
+
+  byId('stats-inner').innerHTML = stats.map(s => `
+    <div class="stat">
+      <div class="stat-value">${s.value}</div>
+      <div class="stat-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  byId('stat-total').textContent = logs.length;
+  byId('stat-demarches').textContent = demarches.length;
+  byId('stat-date').textContent = DATA.generated_at;
+  byId('meta-note').textContent = DATA.note;
+}
+
+// ── Render ──
+function getFilteredLogiciels() {
+  return DATA.logiciels.filter(l => {
+    if (activeFilters.demarche && l.challenge?.demarche !== activeFilters.demarche) return false;
+    if (activeFilters.etat && l.etat !== activeFilters.etat) return false;
+    if (activeFilters.open) {
+      if (activeFilters.open === 'Oui' && l.code_ouvert !== 'Oui') return false;
+      if (activeFilters.open === 'Partiel' && l.code_ouvert !== 'Partiel') return false;
+      if (activeFilters.open === 'Non' && l.code_ouvert !== 'Non') return false;
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const haystack = [l.nom, l.etat, l.challenge?.demarche, ...(l.serveurs || []), ...(l.compatibilite || [])].join(' ').toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+const demarcheIcons = {
+  'Messagerie professionnelle': '💬',
+  'Service cloud': '☁️',
+  'Prototypage UI': '🎨',
+};
+
+function render() {
+  const filtered = getFilteredLogiciels();
+  const main = byId('main-content');
+
+  if (!filtered.length) {
+    main.innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>Aucun logiciel ne correspond a vos filtres.</p></div>`;
+    return;
+  }
+
+  // Group by demarche
+  const demarches = {};
+  const standalone = [];
+
+  filtered.forEach(l => {
+    const d = l.challenge?.demarche;
+    if (d) {
+      if (!demarches[d]) demarches[d] = { challenged: [], challengers: [] };
+      if (l.challenge.role === 'challenge') demarches[d].challenged.push(l);
+      else demarches[d].challengers.push(l);
+    } else {
+      standalone.push(l);
+    }
+  });
+
+  let html = '';
+
+  // Sections by demarche
+  Object.entries(demarches).forEach(([demarche, { challenged, challengers }]) => {
+    const icon = demarcheIcons[demarche] || '🔧';
+    const total = challenged.length + challengers.length;
+    html += `
+      <section class="demarche-section">
+        <div class="demarche-header">
+          <div class="demarche-icon">${icon}</div>
+          <div class="demarche-title">${demarche}</div>
+          <span class="demarche-count">${total} logiciel${total > 1 ? 's' : ''}</span>
+        </div>
+        <div class="demarche-layout">
+    `;
+
+    // Challenged column
+    html += `<div class="challenged-col">`;
+    html += `<div class="col-label">Actuellement utilise</div>`;
+    if (challenged.length) {
+      challenged.forEach(l => { html += renderCard(l, true); });
+    } else {
+      html += `<div style="font-size:13px;color:var(--text-light);padding:12px 0">Aucun dans ce filtre</div>`;
+    }
+    html += `</div>`;
+
+    // Challengers column
+    html += `<div class="challengers-col">`;
+    html += `<div class="col-label">Alternatives evaluees</div>`;
+    html += `<div class="challengers-grid">`;
+    challengers.forEach(l => { html += renderCard(l, false); });
+    html += `</div></div>`;
+
+    html += `</div></section>`;
+  });
+
+  // Standalone (no demarche)
+  if (standalone.length) {
+    html += `
+      <section class="demarche-section">
+        <div class="demarche-header">
+          <div class="demarche-icon">🔧</div>
+          <div class="demarche-title">Autres logiciels</div>
+          <span class="demarche-count">${standalone.length} logiciel${standalone.length > 1 ? 's' : ''}</span>
+        </div>
+        <div class="standalone-grid">
+    `;
+    standalone.forEach(l => { html += renderCard(l, false); });
+    html += `</div></section>`;
+  }
+
+  main.innerHTML = html;
+}
+
+// ── Events ──
+document.querySelectorAll('.chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    const value = btn.dataset.value;
+    activeFilters[filter] = (activeFilters[filter] === value) ? '' : value;
+
+    // Update active class for this filter group
+    document.querySelectorAll(`.chip[data-filter="${filter}"]`).forEach(c => {
+      c.classList.toggle('active', c.dataset.value === activeFilters[filter]);
+    });
+    // Ensure "all" chip is active when filter is empty
+    if (!activeFilters[filter]) {
+      document.querySelector(`.chip[data-filter="${filter}"][data-value=""]`)?.classList.add('active');
+    }
+    render();
+  });
+});
+
+// Delegate for dynamically-added chips
+document.getElementById('filter-demarche').addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  const value = btn.dataset.value;
+  activeFilters.demarche = (activeFilters.demarche === value && value !== '') ? '' : value;
+  document.querySelectorAll('.chip[data-filter="demarche"]').forEach(c => {
+    c.classList.toggle('active', c.dataset.value === activeFilters.demarche);
+  });
+  if (!activeFilters.demarche) {
+    document.querySelector('.chip[data-filter="demarche"][data-value=""]')?.classList.add('active');
+  }
+  render();
+});
+
+document.getElementById('filter-etat').addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  const value = btn.dataset.value;
+  activeFilters.etat = (activeFilters.etat === value && value !== '') ? '' : value;
+  document.querySelectorAll('.chip[data-filter="etat"]').forEach(c => {
+    c.classList.toggle('active', c.dataset.value === activeFilters.etat);
+  });
+  if (!activeFilters.etat) {
+    document.querySelector('.chip[data-filter="etat"][data-value=""]')?.classList.add('active');
+  }
+  render();
+});
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+
+// Scroll to top button
+window.addEventListener('scroll', () => {
+  byId('scroll-top').classList.toggle('visible', window.scrollY > 300);
+});
+
+// ── Bootstrap ──
+buildStats();
+buildFilters();
+render();
+</script>
+</body>
+</html>

@@ -73,11 +73,11 @@
 }
 
 :root {
-  --color-bg:      #111820;
+  --color-bg:      #000419;
   --color-green:   #7FB069;
   --color-red:     #EC6B40;
   --color-citron:  #FFFBBD;
-  --color-caramel: #E6AA68;
+  --color-caramel: #FB9CA0;
 }
 
 body {

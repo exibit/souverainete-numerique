@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-25",
+  "generated_at": "2026-03-26",
   "source": "Notion > Souveraineté > Logiciels",
-  "note": "Fiches exclues : NextCloud (assignée mais vide), Adobe (⏰), Google Drive (⏰), Gmail (⏰)",
+  "note": "Fiches exclues : ⏰ Adobe (emoji ⏰, sans assignation, vide), ⏰ Google Drive (idem), ⏰ Gmail (idem), NextCloud (assignée mais contenu entièrement vide — uniquement placeholders du template)",
   "logiciels": [
     {
       "nom": "Slack",
@@ -10,12 +10,25 @@
       "creation": 2013,
       "cout_annuel_eur": 1000,
       "code_ouvert": "Non",
-      "serveurs": ["USA", "AWS"],
-      "compatibilite": ["iOS", "Android", "macOS", "WebBase", "Windows", "Linux"],
+      "serveurs": [
+        "USA",
+        "AWS"
+      ],
+      "compatibilite": [
+        "iOS",
+        "Android",
+        "macOS",
+        "WebBase",
+        "Windows",
+        "Linux"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": { "role": "challengé", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challengé",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30950caf484d800b9172e5f9a827a73b",
       "contenu": {
         "siege_social": "Slack Technologies, San Francisco, États-Unis.",
@@ -39,7 +52,8 @@
         "avantages_souverains": "Plans Business+ permettent résidence des données en Europe (Paris, Francfort).",
         "cout_detail": "Modèle freemium. Pro ~4,38 $/user/mois, Business+ ~9 $/user/mois. Spade paie environ 84 € HTVA/mois soit ~1000 €/an.",
         "migration": "Outils d'importation depuis certains services concurrents (Teams). Export standard : canaux publics pour tous les plans. Export avancé (canaux privés) : plans Business+ et Enterprise Grid."
-      }
+      },
+      "score": 18
     },
     {
       "nom": "Figma",
@@ -48,12 +62,24 @@
       "creation": 2012,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Non",
-      "serveurs": ["AWS", "EU"],
-      "compatibilite": ["Android", "iOS", "Windows", "macOS", "Linux"],
+      "serveurs": [
+        "AWS",
+        "EU"
+      ],
+      "compatibilite": [
+        "Android",
+        "iOS",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
       "portabilite": "Satisfaisante",
       "securite": null,
       "ux": 9,
-      "challenge": { "role": "challengé", "demarche": "Prototypage UI" },
+      "challenge": {
+        "role": "challengé",
+        "demarche": "Prototypage UI"
+      },
       "notion_url": "https://www.notion.so/30d50caf484d8059a6c4dd2a3a4e641b",
       "contenu": {
         "siege_social": "Figma, Inc. 760 Market Street, Floor 10, San Francisco, CA 94102, United States. Corporation Delaware. Subsidiaire UK : Figma UK Ltd.",
@@ -79,7 +105,8 @@
         "avantages_souverains": "Solution accessible légalement en Belgique/EU avec options de résidence des données dans l'UE. Conformité GDPR.",
         "cout_detail": "~1200 €/an pour Spade.",
         "migration": "Export possible (PDF, SVG, PNG, .fig). Pas de standard ouvert complet. Risque de perte de liaisons dynamiques, styles ou prototypages lors d'export."
-      }
+      },
+      "score": 19
     },
     {
       "nom": "Dropbox",
@@ -88,12 +115,26 @@
       "creation": 2007,
       "cout_annuel_eur": 900,
       "code_ouvert": null,
-      "serveurs": ["AWS", "USA", "Irlande"],
-      "compatibilite": ["WebBase", "iOS", "Android", "macOS", "Windows", "Linux"],
+      "serveurs": [
+        "AWS",
+        "USA",
+        "Irlande"
+      ],
+      "compatibilite": [
+        "WebBase",
+        "iOS",
+        "Android",
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
       "portabilite": "Faible",
       "securite": "Fort",
       "ux": 8,
-      "challenge": { "role": "challengé", "demarche": "Service cloud" },
+      "challenge": {
+        "role": "challengé",
+        "demarche": "Service cloud"
+      },
       "notion_url": "https://www.notion.so/30b50caf484d8019988fecd790b337c4",
       "contenu": {
         "siege_social": "Dropbox, Inc. San Francisco, Californie, États-Unis.",
@@ -121,7 +162,8 @@
         "avantages_souverains": "Aucun avantage souverain identifié. Sécurité robuste mais sous contrôle américain.",
         "cout_detail": "Dropbox Standard : 5 licences à 180 $/licence/an. ~900 €/an pour Spade.",
         "migration": "Export via API ou téléchargement manuel. Risque de perte de métadonnées (horodatage, versions, commentaires). Pas d'outil officiel vers un système auto-hébergé."
-      }
+      },
+      "score": 28
     },
     {
       "nom": "Gitlab",
@@ -130,12 +172,19 @@
       "creation": 2011,
       "cout_annuel_eur": 0,
       "code_ouvert": "Partiel",
-      "serveurs": ["Self hosted"],
-      "compatibilite": ["WebBase"],
+      "serveurs": [
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "WebBase"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Moyen",
       "ux": 8,
-      "challenge": { "role": "challengé", "demarche": null },
+      "challenge": {
+        "role": "challengé",
+        "demarche": null
+      },
       "notion_url": "https://www.notion.so/30d50caf484d80e791a9c14a07dbde34",
       "contenu": {
         "siege_social": "GitLab, Inc. 268 Bush Street #350 San Francisco, CA 94104, États-Unis. GitLab France SAS : 57 RUE D'AMSTERDAM 75008 PARIS 8.",
@@ -158,7 +207,8 @@
         "avantages_souverains": "Version GitLab CE open source (licence MIT). Self-hosted chez Spade : contrôle total des données. Version CE (libre) et EE (propriétaire avec fonctionnalités avancées).",
         "cout_detail": "Gratuit en self-hosted (version CE). Coûts d'infrastructure et de maintenance à prévoir.",
         "migration": "Import facile depuis GitHub, Bitbucket avec préservation de l'historique. Export complet des dépôts Git et issues. Configuration des pipelines CI/CD à adapter après migration."
-      }
+      },
+      "score": 28
     },
     {
       "nom": "Mattermost",
@@ -167,12 +217,24 @@
       "creation": 2015,
       "cout_annuel_eur": null,
       "code_ouvert": "Oui",
-      "serveurs": ["Self hosted"],
-      "compatibilite": ["WebBase", "iOS", "Android", "macOS", "Windows", "Linux"],
+      "serveurs": [
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "WebBase",
+        "iOS",
+        "Android",
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 6,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30a50caf484d8053bd46f279e84a65cb",
       "contenu": {
         "siege_social": "Mattermost, Inc. Palo Alto, Californie, États-Unis.",
@@ -199,7 +261,8 @@
         "avantages_souverains": "Code source AGPLv3. Si auto-hébergé en UE : autonomie complète. Interface proche de Slack, courbe d'apprentissage douce.",
         "cout_detail": "Enterprise Edition : à partir de 10 $/user/mois. Auto-hébergement : gratuit + coûts infrastructure. Cloud managé (OVH, Infomaniak + licence Enterprise) : 100-300 €/mois.",
         "migration": "Outil officiel de migration depuis Slack (CLI ou web app). Supporte messages, fichiers, canaux, utilisateurs. Messages privés et intégrations avancées peuvent nécessiter travail manuel. Pas d'outil officiel d'export vers Teams ou Slack."
-      }
+      },
+      "score": 46
     },
     {
       "nom": "FramaTeam",
@@ -208,12 +271,25 @@
       "creation": 2003,
       "cout_annuel_eur": null,
       "code_ouvert": "Oui",
-      "serveurs": ["Germany", "EU", "Self hosted"],
-      "compatibilite": ["Linux", "Android", "macOS", "Windows", "iOS"],
+      "serveurs": [
+        "Germany",
+        "EU",
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "Linux",
+        "Android",
+        "macOS",
+        "Windows",
+        "iOS"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Faible",
       "ux": 7,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30a50caf484d807ebeb5d8420c555d41",
       "contenu": {
         "siege_social": "Association Framasoft, c/o Locaux Motiv 10 bis, rue Jangot - 69007 LYON - FRANCE.",
@@ -235,7 +311,8 @@
         "avantages_souverains": "Conformité RGPD : pas de publicité, pas de profiling. Indépendance vis-à-vis des GAFAM. Possibilité d'auto-hébergement. Instance publique gratuite.",
         "cout_detail": "Instance publique gratuite. Pour associations/petites structures : ~500 € HT/an (contribution libre) jusqu'à 1500 € HT/an. Gratuit pour les particuliers.",
         "migration": "Mattermost permet l'export de données (messages, fichiers) depuis une instance auto-hébergée. Import depuis autres plateformes nécessite outils externes. Risques de perte de métadonnées."
-      }
+      },
+      "score": 72
     },
     {
       "nom": "Treebal",
@@ -244,12 +321,24 @@
       "creation": 2021,
       "cout_annuel_eur": 1500,
       "code_ouvert": "Partiel",
-      "serveurs": ["EU", "HDS google cloud platform"],
-      "compatibilite": ["macOS", "Windows", "iOS", "Android", "WebBase"],
+      "serveurs": [
+        "EU",
+        "HDS google cloud platform"
+      ],
+      "compatibilite": [
+        "macOS",
+        "Windows",
+        "iOS",
+        "Android",
+        "WebBase"
+      ],
       "portabilite": null,
       "securite": "Fort",
       "ux": null,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30950caf484d808bbc46ea6463f2bea3",
       "contenu": {
         "siege_social": "28 Bd du Colombier - 35000 Rennes - FRANCE.",
@@ -275,7 +364,8 @@
         "avantages_souverains": "Chiffrement E2E des messages. Hébergement en Europe, solution française. Pas de revente des données. Solidarité territoriale. Reconnu par des instances publiques françaises. Basé sur Matrix.",
         "cout_detail": "Pour associations/petites structures : 500 à 1500 € HT/an. Gratuit pour les particuliers. Tarification entreprise sur devis. Coût renseigné pour Spade : 1500 €/an.",
         "migration": "Webinaire du 10 mars 2026 avec Samuel Le Port. API disponible. 1h de formation incluse dans l'offre PRO."
-      }
+      },
+      "score": 75
     },
     {
       "nom": "Wire",
@@ -284,12 +374,26 @@
       "creation": 2014,
       "cout_annuel_eur": 900,
       "code_ouvert": "Oui",
-      "serveurs": ["EU", "AWS", "HDS google cloud platform", "Self hosted"],
-      "compatibilite": ["iOS", "Android", "macOS", "Windows", "WebBase"],
+      "serveurs": [
+        "EU",
+        "AWS",
+        "HDS google cloud platform",
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "iOS",
+        "Android",
+        "macOS",
+        "Windows",
+        "WebBase"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": null,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30950caf484d80d4ba0cf68fb3386105",
       "contenu": {
         "siege_social": "Wire Swiss GmbH, Untermüli 9, CH-6300 Zug, Switzerland. Équipes à Berlin et en France. Pôle aux États-Unis pour les utilisateurs américains.",
@@ -306,11 +410,12 @@
           "Gestion des disponibilités"
         ],
         "securite_detail": "Chiffrement MLS. Chiffrement E2E : tout le contenu est chiffré sur l'appareil de l'expéditeur et déchiffré uniquement sur l'appareil du destinataire. Les demandes d'autorités étrangères doivent passer par les autorités suisses (Loi fédérale sur l'entraide judiciaire internationale). Open source sur GitHub : https://github.com/wireapp/",
-        "problemes": "Non renseignés.",
+        "problemes": "Non renseignés dans la fiche.",
         "avantages_souverains": "Open source, code accessible sur GitHub. Chiffrement E2E solide. Juridiction suisse protectrice contre les demandes étrangères.",
         "cout_detail": "~900 €/an. Passage facile d'un compte gratuit à un compte entreprise. Support optionnel.",
         "migration": "Facilité de passage entre plans. Peu de détails sur l'import/export de données."
-      }
+      },
+      "score": 70
     },
     {
       "nom": "Element",
@@ -319,12 +424,24 @@
       "creation": 2016,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Oui",
-      "serveurs": ["UK", "Self hosted"],
-      "compatibilite": ["iOS", "Android", "macOS", "Linux", "Windows"],
+      "serveurs": [
+        "UK",
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "iOS",
+        "Android",
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30a50caf484d80a4b347c3c5a3b7a6c7",
       "contenu": {
         "siege_social": "10 Queen Street Place, London, EC4R 1AG, United Kingdom. Entités : Element Software SARL (France), Element Software GmbH (Allemagne), Element Software Inc (USA).",
@@ -347,7 +464,8 @@
         "avantages_souverains": "Indépendance des fournisseurs. Conformité GDPR et maîtrise des données locales. Contrôle total en auto-hébergé. Protocole Matrix ouvert. Utilisé par gouvernements français (Tchap), allemand (BwMessenger) et Commission Européenne.",
         "cout_detail": "~5 $/siège/mois pour un an (~1200 €/an pour Spade), 10 $ pour un custom domain. Source GetApp.",
         "migration": "Matrix nativement fédéré, pas de vendor lock-in strict. Scripts d'export/import nécessaires. Risques de perte partielle de métadonnées. Selon un client : facile à mettre en place, migration depuis Microsoft Teams bien reçue."
-      }
+      },
+      "score": 88
     },
     {
       "nom": "Kchat",
@@ -356,12 +474,24 @@
       "creation": 2023,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Non",
-      "serveurs": ["Suisse", "EU"],
-      "compatibilite": ["Windows", "macOS", "Linux", "Android", "iOS"],
+      "serveurs": [
+        "Suisse",
+        "EU"
+      ],
+      "compatibilite": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
       "portabilite": "Faible",
       "securite": "Moyen",
       "ux": 6,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/30b50caf484d8016909ef40f4821325b",
       "contenu": {
         "siege_social": "Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève - Suisse.",
@@ -388,7 +518,8 @@
         "avantages_souverains": "200% de compensation CO2, 100% d'énergie renouvelable, datacenters sans climatisation, serveurs mis à jour jusqu'à 15 ans. Indépendance économique, technologique et juridique suisse.",
         "cout_detail": "~1200 €/an pour Spade. Prix dépend du plan kSuite choisi.",
         "migration": "Pas possible d'importer l'historique de Slack ou d'autres messageries. Société solide avec nombreuses autres applications."
-      }
+      },
+      "score": 51
     },
     {
       "nom": "Matrix.org",
@@ -397,12 +528,20 @@
       "creation": 2017,
       "cout_annuel_eur": 360,
       "code_ouvert": "Oui",
-      "serveurs": ["EU", "Self hosted"],
-      "compatibilite": ["WebBase"],
+      "serveurs": [
+        "EU",
+        "Self hosted"
+      ],
+      "compatibilite": [
+        "WebBase"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": null,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/32550caf484d80c48d2bfe52c4ab08f1",
       "contenu": {
         "siege_social": "New Vector Ltd (marque Element). 10 Queen Street Place, London, EC4R 1AG, Royaume-Uni. Matrix.org Foundation C.I.C. (but non lucratif, 2018). Protocole Matrix lancé en 2014.",
@@ -433,7 +572,8 @@
         "avantages_souverains": "Protocole ouvert et décentralisé. Auto-hébergement en Belgique possible : conformité RGPD facilitée. Pas de dépendance à un GAFAM. Interopérabilité native. Reconnu par gouvernements européens : France (Tchap), Allemagne (BwMessenger), Commission Européenne. Code source auditable. CNIL française : validation de Tchap basé sur Matrix (2022).",
         "cout_detail": "Protocole Matrix open source et gratuit (Apache 2.0). Scénario auto-hébergé : ~120-360 €/an de récurrent. Scénario Element Cloud : ~550-1100 $/an pour 10 users. Coût renseigné pour Spade : 360 €/an.",
         "migration": "Export de l'historique via API Matrix (format JSON). Messages E2EE restent chiffrés sans les clés (complexité notable). Bridges disponibles pour migrer depuis Slack, Teams. Migration progressive possible. Risque élevé : messages chiffrés E2EE sans clés irrécupérables."
-      }
+      },
+      "score": 85
     },
     {
       "nom": "Stackfield",
@@ -442,12 +582,22 @@
       "creation": 2013,
       "cout_annuel_eur": 1320,
       "code_ouvert": null,
-      "serveurs": ["EU"],
-      "compatibilite": ["WebBase", "iOS", "macOS", "Android"],
+      "serveurs": [
+        "EU"
+      ],
+      "compatibilite": [
+        "WebBase",
+        "iOS",
+        "macOS",
+        "Android"
+      ],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 7,
-      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Messagerie professionnelle"
+      },
       "notion_url": "https://www.notion.so/32d50caf484d8039a28de66c699e1969",
       "contenu": {
         "siege_social": "Stackfield GmbH, Bavariafilmplatz 7, 82031 Grünwald (près de Munich), Bavière, Allemagne. GmbH (équivalent SARL allemande). Fondateurs : Gian Paolo Lombardo, Rodrigo Focosi.",
@@ -480,7 +630,8 @@
         "avantages_souverains": "Hébergement 100% Allemagne (UE). Absence d'exposition au CLOUD Act. RGPD natif. Chiffrement E2EE réel (rare parmi les outils SaaS). Contrôle des données (export, suppression, portabilité). Fondateurs aux commandes, pas d'actionnaire américain identifié.",
         "cout_detail": "~8-11 €/user/mois (plan Business, facturation annuelle). Pour 10 collaborateurs : ~1200 €/an. Plan Free disponible (jusqu'à 3 users). Essai gratuit 14 jours.",
         "migration": "Export des messages (JSON/CSV), fichiers (ZIP), tâches (CSV). Pas d'import natif depuis Slack/Teams. API REST disponible. Recommandations : exports mensuels via API, clause de résiliation en cas de M&A, DPA obligatoire avant déploiement."
-      }
+      },
+      "score": 92
     },
     {
       "nom": "kDrive",
@@ -489,24 +640,35 @@
       "creation": 2023,
       "cout_annuel_eur": 0,
       "code_ouvert": "Non",
-      "serveurs": ["Suisse"],
-      "compatibilite": ["macOS", "iOS", "WebBase", "Windows"],
+      "serveurs": [
+        "Suisse"
+      ],
+      "compatibilite": [
+        "macOS",
+        "iOS",
+        "WebBase",
+        "Windows"
+      ],
       "portabilite": "Importante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": { "role": "challenger", "demarche": "Service cloud" },
+      "challenge": {
+        "role": "challenger",
+        "demarche": "Service cloud"
+      },
       "notion_url": "https://www.notion.so/31e50caf484d8082aca5d47a693bf82d",
       "contenu": {
         "siege_social": "Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève - Suisse.",
         "actionnariat": "L'entreprise appartient à ses employés.",
         "infrastructure": "Données stockées dans un cloud suisse. Datacenter conçu et hébergé en Suisse, l'un des plus éco-responsables d'Europe.",
-        "fonctionnalites": "Non renseignées en détail dans la fiche.",
-        "securite_detail": "Données clients non revendues. Hors de portée du CLOUD Act (cadre juridique suisse). ISO 27001 et ISO 9001. RGPD respecté. Données chiffrées au repos et en transit. Double facteur d'authentification. Sauvegarde automatique. Chaque organisation cloisonnée avec clé de chiffrement unique.",
-        "problemes": "Non renseignés dans la fiche.",
+        "fonctionnalites": "Non renseigné dans la fiche.",
+        "securite_detail": "Données clients non revendues. Hors de portée du CLOUD Act américain (cadre juridique suisse). ISO 27001 et ISO 9001. RGPD respecté. Données chiffrées au repos et en transit. Double facteur d'authentification. Sauvegarde automatique. Chaque organisation cloisonnée avec clé de chiffrement unique.",
+        "problemes": "Non renseigné dans la fiche.",
         "avantages_souverains": "Hébergement suisse. Hors portée du CLOUD Act. Éco-responsable. Appartient à ses employés.",
         "cout_detail": "Gratuit tant que Spade reste partenaire Infomaniak (revendeur d'hébergements Infomaniak pour ses clients).",
-        "migration": "Non renseignée dans la fiche."
-      }
+        "migration": "Non renseigné dans la fiche."
+      },
+      "score": 78
     },
     {
       "nom": "Perplexity.ai",
@@ -515,12 +677,18 @@
       "creation": 2022,
       "cout_annuel_eur": 216,
       "code_ouvert": "Non",
-      "serveurs": ["AWS", "USA"],
+      "serveurs": [
+        "AWS",
+        "USA"
+      ],
       "compatibilite": null,
       "portabilite": null,
       "securite": "Moyen",
       "ux": 7,
-      "challenge": { "role": null, "demarche": null },
+      "challenge": {
+        "role": null,
+        "demarche": null
+      },
       "notion_url": "https://www.notion.so/32d50caf484d80149b0ac76a43520168",
       "contenu": {
         "siege_social": "Perplexity AI, Inc. 2261 Market Street, Suite 5937, San Francisco, CA 94114, États-Unis. Corporation Delaware. Pas de représentation légale en Europe.",
@@ -553,7 +721,8 @@
         "avantages_souverains": "Interface disponible en français. Multi-modèles (GPT-4o, Claude, Mistral, Llama). Citations de sources vérifiables. Aucun avantage souverain structurel pour une entreprise belge.",
         "cout_detail": "Plan Pro : ~18 €/mois/utilisateur. Pour 10 users : ~2160 €/an. Plan Enterprise sur devis. Coût renseigné pour Spade : 216 €/an (1-2 licences Pro probablement). Facturation en USD.",
         "migration": "Export de l'historique en JSON/texte brut. Pas d'export en masse automatisé (Free et Pro). Format propriétaire difficile à réimporter. Pas d'import depuis solutions concurrentes. Risque vendor lock-in élevé."
-      }
+      },
+      "score": 7
     }
   ]
 }

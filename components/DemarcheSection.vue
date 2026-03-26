@@ -31,11 +31,7 @@ const etatOrder: Record<string, number> = {
   'Abandonné': 4,
 }
 
-const sortedChallengers = computed(() =>
-  [...props.challengers].sort((a, b) =>
-    (etatOrder[a.etat] ?? 99) - (etatOrder[b.etat] ?? 99)
-  )
-)
+const sortedChallengers = computed(() => props.challengers)
 
 // Une alternative "Utilisé" ou "En cours de migration" reçoit la même apparence que le challengé
 function isHighlighted(etat: string): boolean {
@@ -49,10 +45,10 @@ function isHighlighted(etat: string): boolean {
     <!-- Section header -->
     <div class="flex items-center gap-3 mb-8">
       <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-        <UIcon :name="icon" class="w-4 h-4 text-[#E6AA68]" />
+        <UIcon :name="icon" class="w-4 h-4 text-[#FB9CA0]" />
       </div>
-      <h2 class="text-lg font-semibold text-white tracking-tight">{{ demarche }}</h2>
-      <span class="text-xs text-[#898994] font-mono">
+      <h2 class="text-2xl font-medium text-white tracking-tight">{{ demarche }}</h2>
+      <span class="text-sm text-[#898994] font-mono self-end mb-0.5">
         {{ challenged.length + challengers.length }}
       </span>
     </div>
@@ -62,9 +58,9 @@ function isHighlighted(etat: string): boolean {
 
       <!-- Currently used (challengé) -->
       <div>
-        <p class="text-[11px] font-semibold uppercase tracking-widest text-[#898994] mb-3">
+        <h3 class="text-[15px] font-normal uppercase tracking-widest text-[#898994] mb-3">
           Actuellement utilisé
-        </p>
+        </h3>
         <div v-if="challenged.length" class="space-y-3">
           <LogicielCard
             v-for="l in challenged"
@@ -73,14 +69,14 @@ function isHighlighted(etat: string): boolean {
             :is-challenged="true"
           />
         </div>
-        <p v-else class="text-sm text-zinc-700 py-2">Aucun dans ce filtre</p>
+        <p v-else class="text-base text-zinc-700 py-2">Aucun dans ce filtre</p>
       </div>
 
       <!-- Challengers (alternatives) triées par état -->
       <div>
-        <p class="text-[11px] font-semibold uppercase tracking-widest text-[#898994] mb-3">
+        <h3 class="text-[15px] font-normal uppercase tracking-widest text-[#898994] mb-3">
           Alternatives évaluées
-        </p>
+        </h3>
         <div
           v-if="sortedChallengers.length"
           class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
@@ -92,7 +88,7 @@ function isHighlighted(etat: string): boolean {
             :is-challenged="isHighlighted(l.etat)"
           />
         </div>
-        <p v-else class="text-sm text-zinc-700 py-2">Aucune alternative dans ce filtre</p>
+        <p v-else class="text-base text-zinc-700 py-2">Aucune alternative dans ce filtre</p>
       </div>
 
     </div>

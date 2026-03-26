@@ -169,39 +169,46 @@ function toggleDemarche(value: string) {
     <div class="max-w-[1240px] mx-auto px-6 py-12">
 
       <!-- ── Filtre démarches ── -->
-      <div class="flex items-center gap-2 mb-10 px-4 py-3 rounded-xl border border-white/20 w-full">
-        <span class="text-sm font-semibold text-[#A1A1AA] flex-shrink-0">Démarches</span>
-        <div class="w-px h-4 bg-white/10 flex-shrink-0" />
-        <UButton
-          size="sm"
-          :variant="selectedDemarche === '' ? 'solid' : 'ghost'"
-          :color="selectedDemarche === '' ? 'primary' : 'gray'"
-          label="Toutes"
-          :ui="{ rounded: 'rounded-full', color: { gray: { ghost: 'text-white hover:text-white hover:bg-white/10' } } }"
-          @click="selectedDemarche = ''"
-        />
-        <UButton
-          v-for="d in demarches"
-          :key="d"
-          size="sm"
-          :variant="selectedDemarche === d ? 'solid' : 'ghost'"
-          :color="selectedDemarche === d ? 'primary' : 'gray'"
-          :label="`${d} (${demarcheCount[d]})`"
-          :ui="{ rounded: 'rounded-full', color: { gray: { ghost: 'text-white hover:text-white hover:bg-white/10' } } }"
-          @click="toggleDemarche(d)"
-        />
-        <div class="ml-auto flex items-center gap-2 flex-shrink-0">
-          <div class="w-px h-4 bg-white/10" />
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-10 px-4 py-3 rounded-xl border border-white/20 w-full">
+
+        <!-- Boutons démarches -->
+        <div class="flex items-center gap-2 flex-wrap flex-1">
+          <span class="text-sm font-semibold text-[#A1A1AA] flex-shrink-0">Démarches</span>
+          <div class="w-px h-4 bg-white/10 flex-shrink-0" />
+          <UButton
+            size="sm"
+            :variant="selectedDemarche === '' ? 'solid' : 'ghost'"
+            :color="selectedDemarche === '' ? 'primary' : 'gray'"
+            label="Toutes"
+            :ui="{ rounded: 'rounded-full', color: { gray: { ghost: 'text-white hover:text-white hover:bg-white/10' } } }"
+            @click="selectedDemarche = ''"
+          />
+          <UButton
+            v-for="d in demarches"
+            :key="d"
+            size="sm"
+            :variant="selectedDemarche === d ? 'solid' : 'ghost'"
+            :color="selectedDemarche === d ? 'primary' : 'gray'"
+            :label="`${d} (${demarcheCount[d]})`"
+            :ui="{ rounded: 'rounded-full', color: { gray: { ghost: 'text-white hover:text-white hover:bg-white/10' } } }"
+            @click="toggleDemarche(d)"
+          />
+        </div>
+
+        <!-- Recherche -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="hidden sm:block w-px h-4 bg-white/10" />
           <UInput
             v-model="search"
             placeholder="Recherche logiciel"
             icon="i-heroicons-magnifying-glass"
             size="sm"
             variant="none"
-            :ui="{ rounded: 'rounded-full', color: { white: { none: 'text-[#000419] placeholder-[#898994]' } } }"
-            class="w-40"
+            :ui="{ rounded: 'rounded-full', base: 'text-[0.875rem]', color: { white: { none: 'text-[#000419] placeholder-[#898994]' } } }"
+            class="w-full sm:w-[210px]"
           />
         </div>
+
       </div>
 
       <!-- Empty state -->

@@ -79,7 +79,7 @@ function isHighlighted(etat: string): boolean {
         </h3>
         <div
           v-if="sortedChallengers.length"
-          class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
+          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
         >
           <LogicielCard
             v-for="l in sortedChallengers"

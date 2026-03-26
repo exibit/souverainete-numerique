@@ -36,6 +36,27 @@ const props = defineProps<{
 
 const isOpen = ref(false)
 
+const route = useRoute()
+const router = useRouter()
+
+const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
+
+onMounted(() => {
+  if (route.query.logiciel === slug.value && props.logiciel.contenu) {
+    isOpen.value = true
+  }
+})
+
+watch(isOpen, (val) => {
+  if (val) {
+    router.replace({ query: { ...route.query, logiciel: slug.value } })
+  } else {
+    const q = { ...route.query }
+    delete q.logiciel
+    router.replace({ query: q })
+  }
+})
+
 // Carte blanche = logiciel actif
 const isActive = computed(() =>
   props.logiciel.etat === 'Utilisé' || props.logiciel.etat === 'En cours de migration'
@@ -71,9 +92,9 @@ const B = 'inline-flex items-center text-[13px] font-normal px-2 py-0.5 rounded 
 
 function stateBadgeClass(etat: string): string {
   if (etat === 'Utilisé' || etat === 'En cours de migration')
-    return `${B} text-[${C.green}] bg-[${C.green}]/10 border-[${C.green}]/25`
+    return 'inline-flex items-center text-[13px] font-normal px-2 py-0.5 rounded border text-[#7FB069] bg-[#7FB069]/10 border-[#7FB069]/20'
   if (etat === "A l'étude")
-    return `${B} text-[${C.caramel}] bg-[${C.caramel}]/10 border-[${C.caramel}]/25`
+    return 'inline-flex items-center text-[13px] font-normal px-2 py-0.5 rounded border text-[#FB9CA0] bg-[#FB9CA0]/10 border-[#FB9CA0]/25'
   if (etat === 'backlog')
     return `${B} text-white bg-white/10 border-white/20`
   if (etat === 'Abandonné')
@@ -81,29 +102,20 @@ function stateBadgeClass(etat: string): string {
   return `${B} text-[#A1A1AA] bg-zinc-800/40 border-zinc-700/30`
 }
 
-function openBadgeClass(v: string | null): string {
-  if (v === 'Oui')    return `${B} text-[${C.green}] bg-[${C.green}]/10 border-[${C.green}]/25`
-  if (v === 'Partiel') return `${B} text-[${C.citron}] bg-[${C.citron}]/8 border-[${C.citron}]/20`
-  if (v === 'Non')    return `${B} text-white bg-[${C.red}]/10 border-[${C.red}]/25`
-  return `${B} text-[#A1A1AA] bg-zinc-800/40 border-zinc-700/30`
+function openBadgeClass(_v: string | null): string {
+  return `${B} text-white bg-white/10 border-white/20`
 }
 
-function secBadgeClass(v: string | null): string {
-  if (v === 'Fort')   return `${B} text-[${C.green}] bg-[${C.green}]/10 border-[${C.green}]/25`
-  if (v === 'Moyen')  return `${B} text-[${C.citron}] bg-[${C.citron}]/8 border-[${C.citron}]/20`
-  if (v === 'Faible') return `${B} text-[${C.red}] bg-[${C.red}]/10 border-[${C.red}]/25`
-  return `${B} text-[#A1A1AA] bg-zinc-800/40 border-zinc-700/30`
+function secBadgeClass(_v: string | null): string {
+  return `${B} text-white bg-white/10 border-white/20`
 }
 
-function portBadgeClass(v: string | null): string {
-  if (v === 'Importante')   return `${B} text-[${C.green}] bg-[${C.green}]/10 border-[${C.green}]/25`
-  if (v === 'Satisfaisante') return `${B} text-white bg-white/10 border-white/20`
-  if (v === 'Faible')       return `${B} text-[${C.red}] bg-[${C.red}]/10 border-[${C.red}]/25`
-  return `${B} text-[#A1A1AA] bg-zinc-800/40 border-zinc-700/30`
+function portBadgeClass(_v: string | null): string {
+  return `${B} text-white bg-white/10 border-white/20`
 }
 
 function serverClass(_s: string): string {
-  return 'text-[12px] font-normal px-1.5 py-0.5 rounded bg-zinc-800/60 border border-zinc-700/50 text-[#A1A1AA]'
+  return 'inline-flex items-center text-[13px] font-normal px-2 py-0.5 rounded border text-white bg-white/10 border-white/20'
 }
 
 const stateLabel = computed(() => props.logiciel.etat === 'backlog' ? 'Backlog' : props.logiciel.etat)
@@ -222,10 +234,10 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
 
   <!-- ── Detail Slideover ── -->
   <USlideover v-model="isOpen" side="right" :ui="{ width: 'max-w-xl', overlay: { background: 'backdrop-blur-sm bg-black/60' } }">
-    <div class="flex flex-col h-full overflow-hidden" style="background:#000419">
+    <div class="flex flex-col h-full overflow-hidden" style="background:#0312B3">
 
       <!-- Header -->
-      <div class="px-6 py-5 border-b border-white/4 flex-shrink-0">
+      <div class="px-6 py-5 border-b border-white/[2] flex-shrink-0">
         <div class="flex items-start justify-between gap-4">
           <div>
             <div class="flex items-center gap-3 mb-3">
@@ -243,7 +255,7 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
               <span :class="openBadgeClass(logiciel.code_ouvert)">
                 {{ logiciel.code_ouvert ? `OpenSource: ${logiciel.code_ouvert}` : 'OpenSource ?' }}
               </span>
-              <span v-if="logiciel.ux !== null" :class="B" class="text-[#FB9CA0] bg-[#FB9CA0]/10 border-[#FB9CA0]/25">
+              <span v-if="logiciel.ux !== null" :class="B" class="text-white bg-white/10 border-white/20">
                 UX {{ logiciel.ux }}/10
               </span>
             </div>
@@ -264,13 +276,13 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
 
         <div class="px-6 py-5 space-y-4">
           <div v-if="logiciel.contenu?.siege_social">
-            <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-1.5 flex items-center gap-1.5">
+            <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-1.5 flex items-center gap-1.5">
               <UIcon name="i-heroicons-building-office-2" class="w-3.5 h-3.5" /> Siège social
             </h3>
             <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.siege_social }}</p>
           </div>
           <div v-if="logiciel.contenu?.actionnariat">
-            <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-1.5 flex items-center gap-1.5">
+            <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-1.5 flex items-center gap-1.5">
               <UIcon name="i-heroicons-chart-pie" class="w-3.5 h-3.5" /> Actionnariat
             </h3>
             <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.actionnariat }}</p>
@@ -278,7 +290,7 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
         </div>
 
         <div v-if="logiciel.contenu?.infrastructure" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-2 flex items-center gap-1.5">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-server" class="w-3.5 h-3.5" /> Infrastructure
           </h3>
           <p class="text-base text-zinc-300 leading-relaxed mb-2">{{ logiciel.contenu.infrastructure }}</p>
@@ -288,19 +300,19 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
         </div>
 
         <div v-if="fonctionnalites.length" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-2 flex items-center gap-1.5">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-sparkles" class="w-3.5 h-3.5" /> Fonctionnalités
           </h3>
           <ul class="space-y-1.5">
             <li v-for="(f, i) in fonctionnalites" :key="i" class="flex items-start gap-2 text-base text-zinc-300">
-              <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0" style="background:#7FB069" />
+              <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0 bg-white/60" />
               {{ f }}
             </li>
           </ul>
         </div>
 
         <div v-if="logiciel.contenu?.securite_detail" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-2 flex items-center gap-2">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-2">
             <UIcon name="i-heroicons-shield-check" class="w-3.5 h-3.5" />
             Sécurité
             <span v-if="logiciel.securite" :class="secBadgeClass(logiciel.securite)">{{ logiciel.securite }}</span>
@@ -309,33 +321,33 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
         </div>
 
         <div v-if="problemes.length" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest mb-2 flex items-center gap-1.5" style="color:#EC6B40">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-exclamation-triangle" class="w-3.5 h-3.5" /> Points d'attention
           </h3>
           <ul class="space-y-1.5">
             <li v-for="(p, i) in problemes" :key="i" class="flex items-start gap-2 text-base text-zinc-300">
-              <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0" style="background:#EC6B40" />
+              <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0 bg-white/60" />
               {{ p }}
             </li>
           </ul>
         </div>
 
         <div v-if="logiciel.contenu?.avantages_souverains" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest mb-2 flex items-center gap-1.5" style="color:#7FB069">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-shield-check" class="w-3.5 h-3.5" /> Avantages souverains
           </h3>
           <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.avantages_souverains }}</p>
         </div>
 
         <div v-if="logiciel.contenu?.cout_detail" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-2 flex items-center gap-1.5">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-banknotes" class="w-3.5 h-3.5" /> Coût
           </h3>
           <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.cout_detail }}</p>
         </div>
 
         <div v-if="logiciel.contenu?.migration" class="px-6 py-5">
-          <h3 class="text-[13px] font-normal uppercase tracking-widest text-[#898994] mb-2 flex items-center gap-1.5">
+          <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-arrow-path" class="w-3.5 h-3.5" /> Migration
           </h3>
           <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.migration }}</p>

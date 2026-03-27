@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-03-26",
+  "generated_at": "2026-03-27",
   "source": "Notion > Souveraineté > Logiciels",
-  "note": "Fiches exclues : ⏰ Adobe (emoji ⏰, sans assignation, vide), ⏰ Google Drive (idem), ⏰ Gmail (idem), NextCloud (assignée mais contenu entièrement vide — uniquement placeholders du template)",
+  "note": "Fiches exclues : NextCloud (assignée mais vide), Adobe (⏰), Google Drive (⏰), Gmail (⏰), Perplexity.ai (aucune démarche associée)",
+  "note_favicons": "Les favicons sont référencées par nom de fichier dans le champ icon.favicon de chaque logiciel. Le répertoire favicons-logiciels/ doit être alimenté manuellement en récupérant les icônes depuis les fiches Notion correspondantes.",
   "logiciels": [
     {
       "nom": "Slack",
@@ -10,50 +11,26 @@
       "creation": 2013,
       "cout_annuel_eur": 1000,
       "code_ouvert": "Non",
-      "serveurs": [
-        "USA",
-        "AWS"
-      ],
-      "compatibilite": [
-        "iOS",
-        "Android",
-        "macOS",
-        "WebBase",
-        "Windows",
-        "Linux"
-      ],
+      "serveurs": ["USA", "AWS"],
+      "compatibilite": ["iOS", "Android", "macOS", "WebBase", "Windows", "Linux"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": {
-        "role": "challengé",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 18,
+      "icon": { "favicon": "slack.png" },
+      "challenge": { "role": "challengé", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30950caf484d800b9172e5f9a827a73b",
       "contenu": {
-        "siege_social": "Slack Technologies, San Francisco, États-Unis.",
-        "actionnariat": "Acquisition par Salesforce en 2021 à 100%. Actionnaires principaux : Vanguard Group, BlackRock, State Street, Capital International Investors, Morgan Stanley, Norges Bank. Institutionnels ~80%, insiders ~5%, particuliers ~13%. Marc Benioff (CEO Salesforce) est l'un des plus gros actionnaires individuels.",
-        "infrastructure": "Stockage exclusivement aux États-Unis par défaut. Plans Business+ ou Enterprise Grid permettent de choisir la région (Francfort, Paris, Londres, Suisse…). Repose sur des datacenters prestataires (AWS, Google Cloud ou équivalents). Même avec résidence des données activée, certaines catégories (profils utilisateurs, métriques) peuvent être stockées aux États-Unis.",
-        "fonctionnalites": [
-          "Messagerie instantanée en temps réel (canaux publics/privés, messages directs)",
-          "Recherche dans les conversations et fichiers",
-          "Intégrations natives avec +2 600 applications (Google Drive, Jira, GitHub…)",
-          "Appels audio et vidéo, partages d'écran (Huddles)",
-          "Bots et automatisations (Slackbot)",
-          "Fonctions IA intégrées (résumés, recherche intelligente, workflow)",
-          "Multi-plateforme : Web, Windows, macOS, Linux, iOS, Android",
-          "+12 langues supportées"
-        ],
-        "securite_detail": "Chiffrement des données au repos et en transit. 2FA supportée. SSO et SCIM disponibles sur plans payants. Conformité RGPD. DPA inclus avec SCC pour transferts hors UE. Certifications : ISO 27001, ISO 27017, ISO 27018, SOC 2, SOC 3. La responsabilité de conformité RGPD est partagée : Slack fournit les outils, le client configure et gère les droits.",
-        "problemes": [
-          "Dépendant du Cloud",
-          "Pannes globales historiques (2021-2025)"
-        ],
-        "avantages_souverains": "Plans Business+ permettent résidence des données en Europe (Paris, Francfort).",
-        "cout_detail": "Modèle freemium. Pro ~4,38 $/user/mois, Business+ ~9 $/user/mois. Spade paie environ 84 € HTVA/mois soit ~1000 €/an.",
-        "migration": "Outils d'importation depuis certains services concurrents (Teams). Export standard : canaux publics pour tous les plans. Export avancé (canaux privés) : plans Business+ et Enterprise Grid."
-      },
-      "score": 18
+        "siege_social": "<ul><li>Slack Technologies, San Francisco, États-Unis</li><li>Filiale à 100% de <strong>Salesforce</strong> depuis 2021</li></ul>",
+        "actionnariat": "<ul><li>Acquisition par <strong>Salesforce</strong> en 2021 à 100%</li><li>Actionnaires principaux : Vanguard Group, BlackRock, State Street, Capital International Investors, Morgan Stanley, Norges Bank</li><li>Institutionnels ~80%, insiders ~5%, particuliers ~13%</li><li>Marc Benioff (CEO Salesforce) est l'un des plus gros actionnaires individuels</li></ul>",
+        "infrastructure": "<ul><li>Stockage exclusivement aux États-Unis par défaut</li><li>Plans <strong>Business+</strong> ou <strong>Enterprise Grid</strong> permettent de choisir la région (Francfort, Paris, Londres, Suisse…)</li><li>Repose sur des datacenters prestataires (AWS, Google Cloud ou équivalents)</li><li>Même avec résidence des données activée, certaines catégories (profils utilisateurs, métriques) peuvent être stockées aux États-Unis</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie instantanée en temps réel (canaux publics/privés, messages directs)</li><li>Recherche dans les conversations et fichiers</li><li>Intégrations natives avec +2 600 applications (Google Drive, Jira, GitHub…)</li><li>Appels audio et vidéo, partages d'écran (Huddles)</li><li>Bots et automatisations (Slackbot)</li><li>Fonctions IA intégrées (résumés, recherche intelligente, workflow)</li><li>Multi-plateforme : Web, Windows, macOS, Linux, iOS, Android</li><li>+12 langues supportées</li></ul>",
+        "securite_detail": "<ul><li>Chiffrement des données au repos et en transit</li><li>2FA supportée</li><li>SSO et SCIM disponibles sur plans payants</li><li>Conformité RGPD — DPA inclus avec SCC pour transferts hors UE</li><li>Certifications : <strong>ISO 27001, ISO 27017, ISO 27018, SOC 2, SOC 3</strong></li><li>La responsabilité de conformité RGPD est partagée : Slack fournit les outils, le client configure et gère les droits</li></ul>",
+        "problemes": "<ul><li>Dépendant du Cloud</li><li>Pannes globales historiques (2021–2025)</li></ul>",
+        "avantages_souverains": "<p>Plans <strong>Business+</strong> permettent résidence des données en Europe (Paris, Francfort).</p>",
+        "cout_detail": "<ul><li>Modèle freemium</li><li>Pro ~4,38 $/user/mois — Business+ ~9 $/user/mois</li><li>Spade paie environ <strong>84 € HTVA/mois</strong> soit ~<strong>1 000 €/an</strong></li></ul>",
+        "migration": "<ul><li>Outils d'importation depuis certains services concurrents (Teams)</li><li>Export standard : canaux publics pour tous les plans</li><li>Export avancé (canaux privés) : plans Business+ et Enterprise Grid uniquement</li></ul>"
+      }
     },
     {
       "nom": "Figma",
@@ -62,51 +39,26 @@
       "creation": 2012,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Non",
-      "serveurs": [
-        "AWS",
-        "EU"
-      ],
-      "compatibilite": [
-        "Android",
-        "iOS",
-        "Windows",
-        "macOS",
-        "Linux"
-      ],
+      "serveurs": ["AWS", "EU"],
+      "compatibilite": ["Android", "iOS", "Windows", "macOS", "Linux"],
       "portabilite": "Satisfaisante",
       "securite": null,
       "ux": 9,
-      "challenge": {
-        "role": "challengé",
-        "demarche": "Prototypage UI"
-      },
+      "score": 19,
+      "icon": { "favicon": "figma.png" },
+      "challenge": { "role": "challengé", "demarche": "Prototypage UI" },
       "notion_url": "https://www.notion.so/30d50caf484d8059a6c4dd2a3a4e641b",
       "contenu": {
-        "siege_social": "Figma, Inc. 760 Market Street, Floor 10, San Francisco, CA 94102, United States. Corporation Delaware. Subsidiaire UK : Figma UK Ltd.",
-        "actionnariat": "Cotée au NYSE depuis juillet 2025. Investisseurs historiques : Index Ventures, Greylock Partners, Kleiner Perkins, Sequoia Capital.",
-        "infrastructure": "Offre Data Residency : hébergement des données dans l'Union Européenne, Australie, Inde via AWS.",
-        "fonctionnalites": [
-          "Édition vectorielle collaborative & interface design",
-          "Prototypage interactif, design systèmes et composants",
-          "Multi-utilisateur en temps réel",
-          "Whiteboarding avec FigJam, présentations (Slides), Dev Mode, intégrations API",
-          "Historique des versions, bibliothèques d'équipe, plugins"
-        ],
-        "securite_detail": "Modèle à responsabilité partagée. Conformités : SOC 2 Type II, ISO 27001, GDPR. Chiffrement en transit et au repos. 2FA, SSO via SAML, SCIM. Déploiement AWS avec régions de backup. Poursuite judiciaire sur l'usage des données clients pour entraîner l'IA.",
-        "problemes": [
-          "Pas de siège belge, structures locales via filiales européennes",
-          "Infrastructure cloud externalisée (AWS) : impact sur la souveraineté des données",
-          "Tarifs sujets à hausse",
-          "Poursuite judiciaire sur l'utilisation des données clients pour l'IA",
-          "Absence de code source ouvert → dépendance fournisseur",
-          "Migration des données vers les USA par défaut",
-          "IPO 2025, valorisée à plusieurs dizaines de milliards"
-        ],
-        "avantages_souverains": "Solution accessible légalement en Belgique/EU avec options de résidence des données dans l'UE. Conformité GDPR.",
-        "cout_detail": "~1200 €/an pour Spade.",
-        "migration": "Export possible (PDF, SVG, PNG, .fig). Pas de standard ouvert complet. Risque de perte de liaisons dynamiques, styles ou prototypages lors d'export."
-      },
-      "score": 19
+        "siege_social": "<ul><li>Figma, Inc. — 760 Market Street, Floor 10, San Francisco, CA 94102, États-Unis</li><li>Corporation Delaware</li><li>Subsidiaire UK : <strong>Figma UK Ltd</strong></li></ul>",
+        "actionnariat": "<ul><li>Cotée au <strong>NYSE</strong> depuis juillet 2025</li><li>Investisseurs historiques : Index Ventures, Greylock Partners, Kleiner Perkins, Sequoia Capital</li></ul>",
+        "infrastructure": "<ul><li>Offre <strong>Data Residency</strong> : hébergement des données dans l'Union Européenne, Australie, Inde via AWS</li></ul>",
+        "fonctionnalites": "<ul><li>Édition vectorielle collaborative &amp; interface design</li><li>Prototypage interactif, design systèmes et composants</li><li>Multi-utilisateur en temps réel</li><li>Whiteboarding avec FigJam, présentations (Slides), Dev Mode, intégrations API</li><li>Historique des versions, bibliothèques d'équipe, plugins</li></ul>",
+        "securite_detail": "<ul><li>Modèle à responsabilité partagée</li><li>Conformités : <strong>SOC 2 Type II, ISO 27001, GDPR</strong></li><li>Chiffrement en transit et au repos</li><li>2FA, SSO via SAML, SCIM</li><li>Déploiement AWS avec régions de backup</li><li>⚠️ Poursuite judiciaire en cours sur l'usage des données clients pour entraîner l'IA</li></ul>",
+        "problemes": "<ul><li>Pas de siège belge — structures locales via filiales européennes</li><li>Infrastructure cloud externalisée (AWS) : impact sur la souveraineté des données</li><li>Tarifs sujets à hausse</li><li>Poursuite judiciaire sur l'utilisation des données clients pour l'IA</li><li>Absence de code source ouvert → dépendance fournisseur</li><li>Migration des données vers les USA par défaut</li><li>IPO 2025, valorisée à plusieurs dizaines de milliards</li></ul>",
+        "avantages_souverains": "<p>Solution accessible légalement en Belgique/UE avec options de <strong>résidence des données dans l'UE</strong>. Conformité GDPR.</p>",
+        "cout_detail": "<ul><li>~<strong>1 200 €/an</strong> pour Spade</li></ul>",
+        "migration": "<ul><li>Export possible : PDF, SVG, PNG, .fig</li><li>Pas de standard ouvert complet</li><li>Risque de perte de liaisons dynamiques, styles ou prototypages lors d'export</li></ul>"
+      }
     },
     {
       "nom": "Dropbox",
@@ -115,55 +67,26 @@
       "creation": 2007,
       "cout_annuel_eur": 900,
       "code_ouvert": null,
-      "serveurs": [
-        "AWS",
-        "USA",
-        "Irlande"
-      ],
-      "compatibilite": [
-        "WebBase",
-        "iOS",
-        "Android",
-        "macOS",
-        "Windows",
-        "Linux"
-      ],
+      "serveurs": ["AWS", "USA", "Irlande"],
+      "compatibilite": ["WebBase", "iOS", "Android", "macOS", "Windows", "Linux"],
       "portabilite": "Faible",
       "securite": "Fort",
       "ux": 8,
-      "challenge": {
-        "role": "challengé",
-        "demarche": "Service cloud"
-      },
+      "score": 28,
+      "icon": { "favicon": "dropbox.png" },
+      "challenge": { "role": "challengé", "demarche": "Service cloud" },
       "notion_url": "https://www.notion.so/30b50caf484d8019988fecd790b337c4",
       "contenu": {
-        "siege_social": "Dropbox, Inc. San Francisco, Californie, États-Unis.",
-        "actionnariat": "Cotée NASDAQ (DBX) depuis 2018. Actionnaires principaux : BlackRock, Vanguard. Pas de contrôle public ou européen.",
-        "infrastructure": "Hébergement sur AWS principalement aux États-Unis. Points de présence en Europe (Irlande, Allemagne). Données stockées en Irlande pour les utilisateurs européens.",
-        "fonctionnalites": [
-          "Stockage cloud sécurisé (jusqu'à 3 To par utilisateur)",
-          "Partage de fichiers et de dossiers",
-          "Synchronisation automatique entre appareils",
-          "Versioning (historique des fichiers)",
-          "Collaboration en temps réel",
-          "Intégration Microsoft Office, Google Workspace, Slack, Zoom",
-          "Signature électronique (Dropbox Sign)",
-          "Automatisation (Dropbox Automate)",
-          "Recherche intelligente (OCR)"
-        ],
-        "securite_detail": "AES-256 au repos, TLS 1.2+ en transit. SSO, MFA obligatoire pour les comptes pro. Historique des fichiers jusqu'à 180 jours (Pro) ou illimité (Enterprise). Conformités : RGPD, HIPAA, SOC 2, ISO 27001. Pas de chiffrement E2E pour les fichiers. Clauses contractuelles standard (SCC) pour transferts hors UE, mais risque CLOUD Act persistant.",
-        "problemes": [
-          "Pas d'auto-hébergement",
-          "Contrôle et traitement restent américains malgré stockage en Irlande",
-          "Risque CLOUD Act",
-          "Code source fermé",
-          "Seulement 5 licences pour Spade (staff@spade.be)"
-        ],
-        "avantages_souverains": "Aucun avantage souverain identifié. Sécurité robuste mais sous contrôle américain.",
-        "cout_detail": "Dropbox Standard : 5 licences à 180 $/licence/an. ~900 €/an pour Spade.",
-        "migration": "Export via API ou téléchargement manuel. Risque de perte de métadonnées (horodatage, versions, commentaires). Pas d'outil officiel vers un système auto-hébergé."
-      },
-      "score": 28
+        "siege_social": "<ul><li>Dropbox, Inc. — San Francisco, Californie, États-Unis</li></ul>",
+        "actionnariat": "<ul><li>Cotée <strong>NASDAQ (DBX)</strong> depuis 2018</li><li>Actionnaires principaux : BlackRock, Vanguard</li><li>Pas de contrôle public ou européen</li></ul>",
+        "infrastructure": "<ul><li>Hébergement sur <strong>AWS</strong> principalement aux États-Unis</li><li>Points de présence en Europe (Irlande, Allemagne)</li><li>Données stockées en <strong>Irlande</strong> pour les utilisateurs européens</li></ul>",
+        "fonctionnalites": "<ul><li>Stockage cloud sécurisé (jusqu'à 3 To par utilisateur)</li><li>Partage de fichiers et de dossiers</li><li>Synchronisation automatique entre appareils</li><li>Versioning (historique des fichiers)</li><li>Collaboration en temps réel</li><li>Intégration Microsoft Office, Google Workspace, Slack, Zoom</li><li>Signature électronique (Dropbox Sign)</li><li>Automatisation (Dropbox Automate)</li><li>Recherche intelligente (OCR)</li></ul>",
+        "securite_detail": "<ul><li>AES-256 au repos — TLS 1.2+ en transit</li><li>SSO, MFA obligatoire pour les comptes pro</li><li>Historique des fichiers jusqu'à 180 jours (Pro) ou illimité (Enterprise)</li><li>Conformités : <strong>RGPD, HIPAA, SOC 2, ISO 27001</strong></li><li>⚠️ Pas de chiffrement E2E pour les fichiers</li><li>Clauses contractuelles standard (SCC) pour transferts hors UE, mais <strong>risque CLOUD Act persistant</strong></li></ul>",
+        "problemes": "<ul><li>Pas d'auto-hébergement</li><li>Contrôle et traitement restent américains malgré stockage en Irlande</li><li>Risque CLOUD Act</li><li>Code source fermé</li><li>Seulement 5 licences pour Spade (staff@spade.be)</li></ul>",
+        "avantages_souverains": "<p>Aucun avantage souverain identifié. Sécurité robuste mais sous contrôle américain.</p>",
+        "cout_detail": "<ul><li>Dropbox Standard : 5 licences à 180 $/licence/an</li><li>~<strong>900 €/an</strong> pour Spade</li></ul>",
+        "migration": "<ul><li>Export via API ou téléchargement manuel</li><li>Risque de perte de métadonnées (horodatage, versions, commentaires)</li><li>Pas d'outil officiel vers un système auto-hébergé</li></ul>"
+      }
     },
     {
       "nom": "Gitlab",
@@ -172,43 +95,26 @@
       "creation": 2011,
       "cout_annuel_eur": 0,
       "code_ouvert": "Partiel",
-      "serveurs": [
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "WebBase"
-      ],
+      "serveurs": ["Self hosted"],
+      "compatibilite": ["WebBase"],
       "portabilite": "Satisfaisante",
       "securite": "Moyen",
       "ux": 8,
-      "challenge": {
-        "role": "challengé",
-        "demarche": null
-      },
+      "score": 28,
+      "icon": { "favicon": "gitlab.png" },
+      "challenge": { "role": "challengé", "demarche": null },
       "notion_url": "https://www.notion.so/30d50caf484d80e791a9c14a07dbde34",
       "contenu": {
-        "siege_social": "GitLab, Inc. 268 Bush Street #350 San Francisco, CA 94104, États-Unis. GitLab France SAS : 57 RUE D'AMSTERDAM 75008 PARIS 8.",
-        "actionnariat": "Coté au NASDAQ depuis 2021.",
-        "infrastructure": "Migration d'Azure vers Google Cloud Platform en 2019. Hébergement self-hosted pour Spade : données sur infrastructure propre.",
-        "fonctionnalites": [
-          "Système de suivi des bugs",
-          "Intégration continue (CI)",
-          "Livraison continue (CD)",
-          "Wiki",
-          "Gestion de dépôts Git"
-        ],
-        "securite_detail": "Certifications : ISO/IEC 27001, 27017, 27018, SOC 2, PCI DSS. Données chiffrées en transit et au repos. MFA, SSO intégré. SAST, DAST, scannage de dépendances dans les pipelines CI/CD. Milliers de secrets (tokens, clés API) parfois publiés involontairement dans des dépôts publics.",
-        "problemes": [
-          "Hébergement principal US soumis aux législations américaines",
-          "Gestion de tokens/credentials laissés dans des dépôts publics",
-          "Incident 2017 : perte de 300 Go de données après suppression accidentelle",
-          "Exposition de milliers de clés sensibles observée par chercheurs en cybersécurité (2025)"
-        ],
-        "avantages_souverains": "Version GitLab CE open source (licence MIT). Self-hosted chez Spade : contrôle total des données. Version CE (libre) et EE (propriétaire avec fonctionnalités avancées).",
-        "cout_detail": "Gratuit en self-hosted (version CE). Coûts d'infrastructure et de maintenance à prévoir.",
-        "migration": "Import facile depuis GitHub, Bitbucket avec préservation de l'historique. Export complet des dépôts Git et issues. Configuration des pipelines CI/CD à adapter après migration."
-      },
-      "score": 28
+        "siege_social": "<ul><li>GitLab, Inc. — 268 Bush Street #350, San Francisco, CA 94104, États-Unis</li><li>GitLab France SAS — 57 rue d'Amsterdam, 75008 Paris</li></ul>",
+        "actionnariat": "<ul><li>Cotée au <strong>NASDAQ</strong> depuis 2021</li></ul>",
+        "infrastructure": "<ul><li>Migration d'Azure vers <strong>Google Cloud Platform</strong> en 2019</li><li>Hébergement <strong>self-hosted</strong> pour Spade : données sur infrastructure propre</li></ul>",
+        "fonctionnalites": "<ul><li>Système de suivi des bugs</li><li>Intégration continue (CI)</li><li>Livraison continue (CD)</li><li>Wiki</li><li>Gestion de dépôts Git</li></ul>",
+        "securite_detail": "<ul><li>Certifications : <strong>ISO/IEC 27001, 27017, 27018, SOC 2, PCI DSS</strong></li><li>Données chiffrées en transit et au repos</li><li>MFA, SSO intégré</li><li>SAST, DAST, scannage de dépendances dans les pipelines CI/CD</li><li>⚠️ Milliers de secrets (tokens, clés API) parfois publiés involontairement dans des dépôts publics</li></ul>",
+        "problemes": "<ul><li>Hébergement principal US soumis aux législations américaines</li><li>Gestion de tokens/credentials laissés dans des dépôts publics</li><li>Incident 2017 : perte de 300 Go de données après suppression accidentelle</li><li>Exposition de milliers de clés sensibles observée par chercheurs en cybersécurité (2025)</li></ul>",
+        "avantages_souverains": "<ul><li>Version <strong>GitLab CE</strong> open source (licence MIT)</li><li>Self-hosted chez Spade : contrôle total des données</li><li>Version CE (libre) et EE (propriétaire avec fonctionnalités avancées)</li></ul>",
+        "cout_detail": "<ul><li>Gratuit en self-hosted (version CE)</li><li>Coûts d'infrastructure et de maintenance à prévoir</li></ul>",
+        "migration": "<ul><li>Import facile depuis GitHub, Bitbucket avec préservation de l'historique</li><li>Export complet des dépôts Git et issues</li><li>Configuration des pipelines CI/CD à adapter après migration</li></ul>"
+      }
     },
     {
       "nom": "Mattermost",
@@ -217,52 +123,26 @@
       "creation": 2015,
       "cout_annuel_eur": null,
       "code_ouvert": "Oui",
-      "serveurs": [
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "WebBase",
-        "iOS",
-        "Android",
-        "macOS",
-        "Windows",
-        "Linux"
-      ],
+      "serveurs": ["Self hosted"],
+      "compatibilite": ["WebBase", "iOS", "Android", "macOS", "Windows", "Linux"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 6,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 46,
+      "icon": { "favicon": "mattermost.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30a50caf484d8053bd46f279e84a65cb",
       "contenu": {
-        "siege_social": "Mattermost, Inc. Palo Alto, Californie, États-Unis.",
-        "actionnariat": "Société privée, financée par des investisseurs (Kleiner Perkins, Index Ventures). Pas de données publiques sur la répartition exacte.",
-        "infrastructure": "Hébergement cloud possible sur AWS, Azure, Google Cloud. Infrastructure auto-hébergée entièrement contrôlée par le client. Auto-hébergement possible en Belgique (OVH, Infomaniak, etc.). Siège et support technique américains.",
-        "fonctionnalites": [
-          "Messagerie instantanée (individuelle et de groupe)",
-          "Salons thématiques et canaux",
-          "Intégration avec GitLab, Jira, GitHub, Google Drive, Dropbox",
-          "Appels audio et vidéo (via Jitsi ou intégration)",
-          "Partage d'écran, fichiers, sondages",
-          "Automatisation (playbooks, workflows)",
-          "Recherche avancée et historique",
-          "SSO, MFA",
-          "Personnalisation de la marque",
-          "Surveillance et reporting (Enterprise Edition)"
-        ],
-        "securite_detail": "TLS 1.2+ pour les communications. AES-256 au repos si configuré. Chiffrement E2E possible via plugins tiers. SSO (SAML, OAuth2, LDAP), MFA obligatoire (Enterprise). Conformités : RGPD, HIPAA, NIST, SOC 2. Conforme arrêt Schrems II si auto-hébergé en UE.",
-        "problemes": [
-          "Siège aux États-Unis : point de vigilance RGPD/Schrems II",
-          "Souveraineté réelle uniquement via auto-hébergement en UE",
-          "Modèle 'open core' : fonctionnalités avancées derrière licence payante"
-        ],
-        "avantages_souverains": "Code source AGPLv3. Si auto-hébergé en UE : autonomie complète. Interface proche de Slack, courbe d'apprentissage douce.",
-        "cout_detail": "Enterprise Edition : à partir de 10 $/user/mois. Auto-hébergement : gratuit + coûts infrastructure. Cloud managé (OVH, Infomaniak + licence Enterprise) : 100-300 €/mois.",
-        "migration": "Outil officiel de migration depuis Slack (CLI ou web app). Supporte messages, fichiers, canaux, utilisateurs. Messages privés et intégrations avancées peuvent nécessiter travail manuel. Pas d'outil officiel d'export vers Teams ou Slack."
-      },
-      "score": 46
+        "siege_social": "<ul><li>Mattermost, Inc. — Palo Alto, Californie, États-Unis</li></ul>",
+        "actionnariat": "<ul><li>Société privée, financée par des investisseurs (Kleiner Perkins, Index Ventures)</li><li>Pas de données publiques sur la répartition exacte</li></ul>",
+        "infrastructure": "<ul><li>Hébergement cloud possible sur AWS, Azure, Google Cloud</li><li>Infrastructure auto-hébergée entièrement contrôlée par le client</li><li>Auto-hébergement possible en Belgique (OVH, Infomaniak, etc.)</li><li>Siège et support technique américains</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie instantanée (individuelle et de groupe)</li><li>Salons thématiques et canaux</li><li>Intégration avec GitLab, Jira, GitHub, Google Drive, Dropbox</li><li>Appels audio et vidéo (via Jitsi ou intégration)</li><li>Partage d'écran, fichiers, sondages</li><li>Automatisation (playbooks, workflows)</li><li>Recherche avancée et historique</li><li>SSO, MFA</li><li>Personnalisation de la marque</li><li>Surveillance et reporting (Enterprise Edition)</li></ul>",
+        "securite_detail": "<ul><li>TLS 1.2+ pour les communications</li><li>AES-256 au repos si configuré</li><li>Chiffrement E2E possible via plugins tiers</li><li>SSO (SAML, OAuth2, LDAP), MFA obligatoire (Enterprise)</li><li>Conformités : <strong>RGPD, HIPAA, NIST, SOC 2</strong></li><li>Conforme arrêt Schrems II si auto-hébergé en UE</li></ul>",
+        "problemes": "<ul><li>Siège aux États-Unis : point de vigilance RGPD/Schrems II</li><li>Souveraineté réelle uniquement via auto-hébergement en UE</li><li>Modèle « open core » : fonctionnalités avancées derrière licence payante</li></ul>",
+        "avantages_souverains": "<ul><li>Code source <strong>AGPLv3</strong></li><li>Si auto-hébergé en UE : autonomie complète</li><li>Interface proche de Slack, courbe d'apprentissage douce</li></ul>",
+        "cout_detail": "<ul><li>Enterprise Edition : à partir de 10 $/user/mois</li><li>Auto-hébergement : gratuit + coûts infrastructure</li><li>Cloud managé (OVH, Infomaniak + licence Enterprise) : 100–300 €/mois</li></ul>",
+        "migration": "<ul><li>Outil officiel de migration depuis Slack (CLI ou web app)</li><li>Supporte messages, fichiers, canaux, utilisateurs</li><li>Messages privés et intégrations avancées peuvent nécessiter travail manuel</li><li>Pas d'outil officiel d'export vers Teams ou Slack</li></ul>"
+      }
     },
     {
       "nom": "FramaTeam",
@@ -271,48 +151,26 @@
       "creation": 2003,
       "cout_annuel_eur": null,
       "code_ouvert": "Oui",
-      "serveurs": [
-        "Germany",
-        "EU",
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "Linux",
-        "Android",
-        "macOS",
-        "Windows",
-        "iOS"
-      ],
+      "serveurs": ["Germany", "EU", "Self hosted"],
+      "compatibilite": ["Linux", "Android", "macOS", "Windows", "iOS"],
       "portabilite": "Satisfaisante",
       "securite": "Faible",
       "ux": 7,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 72,
+      "icon": { "favicon": "framateam.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30a50caf484d807ebeb5d8420c555d41",
       "contenu": {
-        "siege_social": "Association Framasoft, c/o Locaux Motiv 10 bis, rue Jangot - 69007 LYON - FRANCE.",
-        "actionnariat": "Structure non commerciale, pas d'actionnaires privés. Modèle sur dons/adhérents.",
-        "infrastructure": "Hébergé dans des data centers de Hetzner (Online GmbH, Gunzenhausen, Germany). Pas de transfert de données hors UE déclaré. Repose sur le logiciel libre Mattermost (licence MIT). Basé sur le standard ouvert Matrix. Possibilité d'auto-hébergement sur serveurs belges/UE.",
-        "fonctionnalites": [
-          "Messagerie d'équipe avec canaux publics et privés",
-          "Notifications, mentions, partage de fichiers",
-          "Organisation en équipes et conversations",
-          "Recherche dans l'historique des messages",
-          "Applications Windows, macOS, Linux, Android, iOS",
-          "Pièces jointes limitées (100 Mo), supprimées après ~1 an"
-        ],
-        "securite_detail": "Chiffrement du transit (HTTPS). Pas de chiffrement E2E activé sur l'instance publique FramaTeam. Données sensibles non chiffrées au repos sur l'offre publique.",
-        "problemes": [
-          "Pièces jointes supprimées automatiquement après 1 an, plafond 100 Mo",
-          "Sécurité des données au repos non chiffrée E2E sur instances publiques"
-        ],
-        "avantages_souverains": "Conformité RGPD : pas de publicité, pas de profiling. Indépendance vis-à-vis des GAFAM. Possibilité d'auto-hébergement. Instance publique gratuite.",
-        "cout_detail": "Instance publique gratuite. Pour associations/petites structures : ~500 € HT/an (contribution libre) jusqu'à 1500 € HT/an. Gratuit pour les particuliers.",
-        "migration": "Mattermost permet l'export de données (messages, fichiers) depuis une instance auto-hébergée. Import depuis autres plateformes nécessite outils externes. Risques de perte de métadonnées."
-      },
-      "score": 72
+        "siege_social": "<ul><li>Association <strong>Framasoft</strong></li><li>c/o Locaux Motiv, 10 bis rue Jangot — 69007 Lyon, France</li></ul>",
+        "actionnariat": "<ul><li>Structure non commerciale, pas d'actionnaires privés</li><li>Modèle sur dons et adhérents</li></ul>",
+        "infrastructure": "<ul><li>Hébergé dans les datacenters de <strong>Hetzner</strong> (Online GmbH, Gunzenhausen, Allemagne)</li><li>Pas de transfert de données hors UE déclaré</li><li>Repose sur le logiciel libre <strong>Mattermost</strong> (licence MIT)</li><li>Basé sur le standard ouvert <strong>Matrix</strong></li><li>Possibilité d'auto-hébergement sur serveurs belges/UE</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie d'équipe avec canaux publics et privés</li><li>Notifications, mentions, partage de fichiers</li><li>Organisation en équipes et conversations</li><li>Recherche dans l'historique des messages</li><li>Applications Windows, macOS, Linux, Android, iOS</li><li>⚠️ Pièces jointes limitées à 100 Mo, supprimées après ~1 an</li></ul>",
+        "securite_detail": "<ul><li>Chiffrement du transit (HTTPS)</li><li>⚠️ Pas de chiffrement E2E activé sur l'instance publique FramaTeam</li><li>⚠️ Données sensibles non chiffrées au repos sur l'offre publique</li></ul>",
+        "problemes": "<ul><li>Pièces jointes supprimées automatiquement après 1 an — plafond 100 Mo</li><li>Sécurité des données au repos non chiffrée E2E sur instances publiques</li></ul>",
+        "avantages_souverains": "<ul><li>Conformité RGPD : pas de publicité, pas de profiling</li><li>Indépendance vis-à-vis des GAFAM</li><li>Possibilité d'auto-hébergement</li><li>Instance publique gratuite</li></ul>",
+        "cout_detail": "<ul><li>Instance publique <strong>gratuite</strong></li><li>Pour associations/petites structures : ~500 € HT/an (contribution libre) jusqu'à 1 500 € HT/an</li><li>Gratuit pour les particuliers</li></ul>",
+        "migration": "<ul><li>Mattermost permet l'export de données (messages, fichiers) depuis une instance auto-hébergée</li><li>Import depuis autres plateformes nécessite outils externes</li><li>Risques de perte de métadonnées</li></ul>"
+      }
     },
     {
       "nom": "Treebal",
@@ -321,51 +179,26 @@
       "creation": 2021,
       "cout_annuel_eur": 1500,
       "code_ouvert": "Partiel",
-      "serveurs": [
-        "EU",
-        "HDS google cloud platform"
-      ],
-      "compatibilite": [
-        "macOS",
-        "Windows",
-        "iOS",
-        "Android",
-        "WebBase"
-      ],
+      "serveurs": ["EU", "HDS google cloud platform"],
+      "compatibilite": ["macOS", "Windows", "iOS", "Android", "WebBase"],
       "portabilite": null,
       "securite": "Fort",
       "ux": null,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 75,
+      "icon": { "favicon": "treebal.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30950caf484d808bbc46ea6463f2bea3",
       "contenu": {
-        "siege_social": "28 Bd du Colombier - 35000 Rennes - FRANCE.",
-        "actionnariat": "Non renseigné.",
-        "infrastructure": "Hébergement au sein de l'UE en Belgique sur HDS Google Cloud Platform et en France chez Scaleway. Migration prévue en 2026 entièrement chez Scaleway en France. Hébergement hybride possible sur infrastructure client.",
-        "fonctionnalites": [
-          "Connexion sans numéro de téléphone",
-          "Appels audio/vidéo",
-          "Espace sécurisé pour gestion des membres",
-          "Planification des communications, gestion des discussions de groupe",
-          "Communication descendante et remontante",
-          "Recueil de signalement anonyme conforme à la loi Sapin 2",
-          "Sondages intégrés",
-          "Droit à la déconnexion pour les membres"
-        ],
-        "securite_detail": "Chiffrement E2E sur la messagerie privée et les appels. Messages supprimés par défaut après 7 jours. Standard Matrix. Pas de numéro affiché dans les groupes. Respect de la vie privée et séparation des usages professionnels/personnels.",
-        "problemes": [
-          "Tarification sur devis pour les entreprises",
-          "Applications SaaS propriétaires et peu flexibles",
-          "Non disponible sur Linux",
-          "Inscription obligatoire avec numéro de téléphone mobile"
-        ],
-        "avantages_souverains": "Chiffrement E2E des messages. Hébergement en Europe, solution française. Pas de revente des données. Solidarité territoriale. Reconnu par des instances publiques françaises. Basé sur Matrix.",
-        "cout_detail": "Pour associations/petites structures : 500 à 1500 € HT/an. Gratuit pour les particuliers. Tarification entreprise sur devis. Coût renseigné pour Spade : 1500 €/an.",
-        "migration": "Webinaire du 10 mars 2026 avec Samuel Le Port. API disponible. 1h de formation incluse dans l'offre PRO."
-      },
-      "score": 75
+        "siege_social": "<ul><li>28 Bd du Colombier — 35000 Rennes, France</li></ul>",
+        "actionnariat": "<p>Non renseigné.</p>",
+        "infrastructure": "<ul><li>Hébergement au sein de l'UE : Belgique sur <strong>HDS Google Cloud Platform</strong> et France chez <strong>Scaleway</strong></li><li>Migration prévue en 2026 entièrement chez Scaleway en France</li><li>Hébergement hybride possible sur infrastructure client</li></ul>",
+        "fonctionnalites": "<ul><li>Connexion sans numéro de téléphone</li><li>Appels audio/vidéo</li><li>Espace sécurisé pour gestion des membres</li><li>Planification des communications, gestion des discussions de groupe</li><li>Communication descendante et remontante</li><li>Recueil de signalement anonyme conforme à la <strong>loi Sapin 2</strong></li><li>Sondages intégrés</li><li>Droit à la déconnexion pour les membres</li></ul>",
+        "securite_detail": "<ul><li><strong>Chiffrement E2E</strong> sur la messagerie privée et les appels</li><li>Messages supprimés par défaut après 7 jours</li><li>Standard <strong>Matrix</strong></li><li>Pas de numéro affiché dans les groupes</li><li>Respect de la vie privée et séparation des usages professionnels/personnels</li></ul>",
+        "problemes": "<ul><li>Tarification sur devis pour les entreprises</li><li>Applications SaaS propriétaires et peu flexibles</li><li>Non disponible sur Linux</li><li>Inscription obligatoire avec numéro de téléphone mobile</li></ul>",
+        "avantages_souverains": "<ul><li>Chiffrement E2E des messages</li><li>Hébergement en Europe, solution française</li><li>Pas de revente des données</li><li>Solidarité territoriale</li><li>Reconnu par des instances publiques françaises</li><li>Basé sur <strong>Matrix</strong></li></ul>",
+        "cout_detail": "<ul><li>Pour associations/petites structures : 500 à 1 500 € HT/an</li><li>Gratuit pour les particuliers</li><li>Tarification entreprise sur devis</li><li>Coût renseigné pour Spade : <strong>1 500 €/an</strong></li></ul>",
+        "migration": "<ul><li>Webinaire du 10 mars 2026 avec Samuel Le Port</li><li>API disponible</li><li>1h de formation incluse dans l'offre PRO</li></ul>"
+      }
     },
     {
       "nom": "Wire",
@@ -374,98 +207,54 @@
       "creation": 2014,
       "cout_annuel_eur": 900,
       "code_ouvert": "Oui",
-      "serveurs": [
-        "EU",
-        "AWS",
-        "HDS google cloud platform",
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "iOS",
-        "Android",
-        "macOS",
-        "Windows",
-        "WebBase"
-      ],
+      "serveurs": ["EU", "AWS", "HDS google cloud platform", "Self hosted"],
+      "compatibilite": ["iOS", "Android", "macOS", "Windows", "WebBase"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": null,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 70,
+      "icon": { "favicon": "wire.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30950caf484d80d4ba0cf68fb3386105",
       "contenu": {
-        "siege_social": "Wire Swiss GmbH, Untermüli 9, CH-6300 Zug, Switzerland. Équipes à Berlin et en France. Pôle aux États-Unis pour les utilisateurs américains.",
-        "actionnariat": "Non renseigné.",
-        "infrastructure": "Infrastructure répartie entre EU, AWS, HDS Google Cloud Platform et self-hosted. Auto-hébergement possible.",
-        "fonctionnalites": [
-          "Collaboration avec externes et invités (droits d'accès limités)",
-          "Conversations temporaires",
-          "Contrôle de la durée de visibilité des messages",
-          "Appels et visioconférence",
-          "Partage de fichiers et d'écran",
-          "Messages audio et vidéo",
-          "Sketch (dessin collaboratif)",
-          "Gestion des disponibilités"
-        ],
-        "securite_detail": "Chiffrement MLS. Chiffrement E2E : tout le contenu est chiffré sur l'appareil de l'expéditeur et déchiffré uniquement sur l'appareil du destinataire. Les demandes d'autorités étrangères doivent passer par les autorités suisses (Loi fédérale sur l'entraide judiciaire internationale). Open source sur GitHub : https://github.com/wireapp/",
-        "problemes": "Non renseignés dans la fiche.",
-        "avantages_souverains": "Open source, code accessible sur GitHub. Chiffrement E2E solide. Juridiction suisse protectrice contre les demandes étrangères.",
-        "cout_detail": "~900 €/an. Passage facile d'un compte gratuit à un compte entreprise. Support optionnel.",
-        "migration": "Facilité de passage entre plans. Peu de détails sur l'import/export de données."
-      },
-      "score": 70
+        "siege_social": "<ul><li><strong>Wire Swiss GmbH</strong> — Untermüli 9, CH-6300 Zug, Suisse</li><li>Équipes à Berlin et en France</li><li>Pôle aux États-Unis pour les utilisateurs américains</li></ul>",
+        "actionnariat": "<p>Non renseigné.</p>",
+        "infrastructure": "<ul><li>Infrastructure répartie entre EU, AWS, HDS Google Cloud Platform et self-hosted</li><li>Auto-hébergement possible</li></ul>",
+        "fonctionnalites": "<ul><li>Collaboration avec externes et invités (droits d'accès limités)</li><li>Conversations temporaires</li><li>Contrôle de la durée de visibilité des messages</li><li>Appels et visioconférence</li><li>Partage de fichiers et d'écran</li><li>Messages audio et vidéo</li><li>Sketch (dessin collaboratif)</li><li>Gestion des disponibilités</li></ul>",
+        "securite_detail": "<ul><li>Chiffrement <strong>MLS</strong></li><li><strong>Chiffrement E2E</strong> : tout le contenu est chiffré sur l'appareil de l'expéditeur et déchiffré uniquement sur l'appareil du destinataire</li><li>Les demandes d'autorités étrangères doivent passer par les autorités suisses (Loi fédérale sur l'entraide judiciaire internationale)</li><li>Open source sur GitHub : <a href=\"https://github.com/wireapp/\">github.com/wireapp</a></li></ul>",
+        "problemes": "<p>Non renseignés.</p>",
+        "avantages_souverains": "<ul><li>Open source, code accessible sur GitHub</li><li>Chiffrement E2E solide</li><li>Juridiction suisse protectrice contre les demandes étrangères</li></ul>",
+        "cout_detail": "<ul><li>~<strong>900 €/an</strong></li><li>Passage facile d'un compte gratuit à un compte entreprise</li><li>Support optionnel</li></ul>",
+        "migration": "<ul><li>Facilité de passage entre plans</li><li>Peu de détails sur l'import/export de données</li></ul>"
+      }
     },
     {
       "nom": "Element",
-      "etat": "En cours de migration",
+      "etat": "A l'étude",
       "nationalite": "🇬🇧",
       "creation": 2016,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Oui",
-      "serveurs": [
-        "UK",
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "iOS",
-        "Android",
-        "macOS",
-        "Linux",
-        "Windows"
-      ],
+      "serveurs": ["UK", "Self hosted"],
+      "compatibilite": ["iOS", "Android", "macOS", "Linux", "Windows"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 88,
+      "icon": { "favicon": "element.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30a50caf484d80a4b347c3c5a3b7a6c7",
       "contenu": {
-        "siege_social": "10 Queen Street Place, London, EC4R 1AG, United Kingdom. Entités : Element Software SARL (France), Element Software GmbH (Allemagne), Element Software Inc (USA).",
-        "actionnariat": "Privé, non coté. Financé par capital-risque. Détails non publiés légalement.",
-        "infrastructure": "Fonctionne sur le protocole décentralisé Matrix. Auto-hébergement des serveurs (homeservers) ou fournisseurs tiers. Pas de localisation centralisée, configurable par les utilisateurs.",
-        "fonctionnalites": [
-          "Messagerie instantanée sécurisée",
-          "Chiffrement E2E par défaut des conversations",
-          "Appels audio et visioconférences (1:1 et groupe)",
-          "Partage de fichiers et médias",
-          "Espaces, salons, fils de discussion",
-          "Bridges vers Slack, IRC, Telegram, Jitsi, etc."
-        ],
-        "securite_detail": "E2EE par défaut. Architecture décentralisée réduisant les points de défaillance. Authentification via systèmes d'identité d'entreprise. ISO 27001 (éditions Enterprise). Utilisé par des gouvernements.",
-        "problemes": [
-          "Interdiction en Inde (2023) pour raisons de sécurité nationale",
-          "Bugs UI/UX signalés par des utilisateurs",
-          "Dépendances à certaines librairies tierces (Google Cloud Messaging dans Play Store)"
-        ],
-        "avantages_souverains": "Indépendance des fournisseurs. Conformité GDPR et maîtrise des données locales. Contrôle total en auto-hébergé. Protocole Matrix ouvert. Utilisé par gouvernements français (Tchap), allemand (BwMessenger) et Commission Européenne.",
-        "cout_detail": "~5 $/siège/mois pour un an (~1200 €/an pour Spade), 10 $ pour un custom domain. Source GetApp.",
-        "migration": "Matrix nativement fédéré, pas de vendor lock-in strict. Scripts d'export/import nécessaires. Risques de perte partielle de métadonnées. Selon un client : facile à mettre en place, migration depuis Microsoft Teams bien reçue."
-      },
-      "score": 88
+        "siege_social": "<ul><li>10 Queen Street Place, London, EC4R 1AG, Royaume-Uni</li><li>Entités : Element Software SARL (France), Element Software GmbH (Allemagne), Element Software Inc (USA)</li></ul>",
+        "actionnariat": "<ul><li>Privé, non coté</li><li>Financé par capital-risque</li><li>Détails non publiés légalement</li></ul>",
+        "infrastructure": "<ul><li>Fonctionne sur le protocole décentralisé <strong>Matrix</strong></li><li>Auto-hébergement des serveurs (homeservers) ou fournisseurs tiers</li><li>Pas de localisation centralisée, configurable par les utilisateurs</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie instantanée sécurisée</li><li><strong>Chiffrement E2E par défaut</strong> des conversations</li><li>Appels audio et visioconférences (1:1 et groupe)</li><li>Partage de fichiers et médias</li><li>Espaces, salons, fils de discussion</li><li>Bridges vers Slack, IRC, Telegram, Jitsi, etc.</li></ul>",
+        "securite_detail": "<ul><li>E2EE par défaut</li><li>Architecture décentralisée réduisant les points de défaillance</li><li>Authentification via systèmes d'identité d'entreprise</li><li><strong>ISO 27001</strong> (éditions Enterprise)</li><li>Utilisé par des gouvernements</li></ul>",
+        "problemes": "<ul><li>Interdiction en Inde (2023) pour raisons de sécurité nationale</li><li>Bugs UI/UX signalés par des utilisateurs</li><li>Dépendances à certaines librairies tierces (Google Cloud Messaging dans Play Store)</li></ul>",
+        "avantages_souverains": "<ul><li>Indépendance des fournisseurs</li><li>Conformité GDPR et maîtrise des données locales</li><li>Contrôle total en auto-hébergé</li><li>Protocole <strong>Matrix</strong> ouvert</li><li>Utilisé par gouvernements français (Tchap), allemand (BwMessenger) et Commission Européenne</li></ul>",
+        "cout_detail": "<ul><li>~5 $/siège/mois pour un an (~<strong>1 200 €/an</strong> pour Spade)</li><li>10 $ pour un custom domain</li><li>Source : GetApp</li></ul>",
+        "migration": "<ul><li>Matrix nativement fédéré, pas de vendor lock-in strict</li><li>Scripts d'export/import nécessaires</li><li>Risques de perte partielle de métadonnées</li><li>Selon un client : facile à mettre en place, migration depuis Microsoft Teams bien reçue</li></ul>"
+      }
     },
     {
       "nom": "Kchat",
@@ -474,52 +263,26 @@
       "creation": 2023,
       "cout_annuel_eur": 1200,
       "code_ouvert": "Non",
-      "serveurs": [
-        "Suisse",
-        "EU"
-      ],
-      "compatibilite": [
-        "Windows",
-        "macOS",
-        "Linux",
-        "Android",
-        "iOS"
-      ],
+      "serveurs": ["Suisse", "EU"],
+      "compatibilite": ["Windows", "macOS", "Linux", "Android", "iOS"],
       "portabilite": "Faible",
       "securite": "Moyen",
       "ux": 6,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 46,
+      "icon": { "favicon": "kchat.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/30b50caf484d8016909ef40f4821325b",
       "contenu": {
-        "siege_social": "Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève - Suisse.",
-        "actionnariat": "L'entreprise appartient à ses employés.",
-        "infrastructure": "Données stockées dans un cloud suisse. Datacenter conçu et hébergé en Suisse, l'un des plus éco-responsables d'Europe.",
-        "fonctionnalites": [
-          "Canaux publics et privés (utilisateurs internes et externes)",
-          "Personnalisable (logo, couleurs, URL, nom de domaine)",
-          "Gestion des accès via tableau de bord",
-          "Recherche historique",
-          "Support disponible en continu",
-          "IA intégrée",
-          "Échanges écrits, audio, vidéo, partage d'écran (fichiers jusqu'à 100 Mo)",
-          "Traduction intégrée (FR, DE, EN, IT, ES)",
-          "GIF et émojis supportés"
-        ],
-        "securite_detail": "Données clients non revendues. Hors de portée du CLOUD Act américain (cadre juridique suisse). ISO 27001 et ISO 9001. RGPD respecté. Données chiffrées au repos et en transit. Datacenter géré par Infomaniak. Double facteur d'authentification. Sauvegarde automatique. Chaque organisation cloisonnée avec clé de chiffrement unique.",
-        "problemes": [
-          "Kchat disponible seulement avec kSuite",
-          "Code entièrement fermé / propriétaire",
-          "API disponible mais migration très difficile",
-          "Pas possible d'importer l'historique de Slack ou d'autres"
-        ],
-        "avantages_souverains": "200% de compensation CO2, 100% d'énergie renouvelable, datacenters sans climatisation, serveurs mis à jour jusqu'à 15 ans. Indépendance économique, technologique et juridique suisse.",
-        "cout_detail": "~1200 €/an pour Spade. Prix dépend du plan kSuite choisi.",
-        "migration": "Pas possible d'importer l'historique de Slack ou d'autres messageries. Société solide avec nombreuses autres applications."
-      },
-      "score": 51
+        "siege_social": "<ul><li><strong>Infomaniak Network SA</strong> — Rue Eugène-Marziano 25, 1227 Genève, Suisse</li></ul>",
+        "actionnariat": "<ul><li>L'entreprise appartient à ses employés</li></ul>",
+        "infrastructure": "<ul><li>Données stockées dans un <strong>cloud suisse</strong></li><li>Datacenter conçu et hébergé en Suisse, l'un des plus éco-responsables d'Europe</li></ul>",
+        "fonctionnalites": "<ul><li>Canaux publics et privés (utilisateurs internes et externes)</li><li>Personnalisable (logo, couleurs, URL, nom de domaine)</li><li>Gestion des accès via tableau de bord</li><li>Recherche historique</li><li>Support disponible en continu</li><li>IA intégrée</li><li>Échanges écrits, audio, vidéo, partage d'écran (fichiers jusqu'à 100 Mo)</li><li>Traduction intégrée (FR, DE, EN, IT, ES)</li><li>GIF et émojis supportés</li></ul>",
+        "securite_detail": "<ul><li>Données clients non revendues</li><li>Hors de portée du <strong>CLOUD Act</strong> américain (cadre juridique suisse)</li><li>Certifications : <strong>ISO 27001</strong> et ISO 9001</li><li>RGPD respecté</li><li>Données chiffrées au repos et en transit</li><li>Datacenter géré par Infomaniak</li><li>Double facteur d'authentification</li><li>Sauvegarde automatique</li><li>Chaque organisation cloisonnée avec clé de chiffrement unique</li></ul>",
+        "problemes": "<ul><li>Kchat disponible seulement avec <strong>kSuite</strong></li><li>Code entièrement fermé / propriétaire</li><li>API disponible mais migration très difficile</li><li>Pas possible d'importer l'historique de Slack ou d'autres</li></ul>",
+        "avantages_souverains": "<ul><li>200% de compensation CO2, 100% d'énergie renouvelable</li><li>Datacenters sans climatisation, serveurs mis à jour jusqu'à 15 ans</li><li>Indépendance économique, technologique et juridique suisse</li></ul>",
+        "cout_detail": "<ul><li>~<strong>1 200 €/an</strong> pour Spade</li><li>Prix dépend du plan kSuite choisi</li></ul>",
+        "migration": "<ul><li>Pas possible d'importer l'historique de Slack ou d'autres messageries</li><li>Société solide avec nombreuses autres applications</li></ul>"
+      }
     },
     {
       "nom": "Matrix.org",
@@ -528,52 +291,26 @@
       "creation": 2017,
       "cout_annuel_eur": 360,
       "code_ouvert": "Oui",
-      "serveurs": [
-        "EU",
-        "Self hosted"
-      ],
-      "compatibilite": [
-        "WebBase"
-      ],
+      "serveurs": ["EU", "Self hosted"],
+      "compatibilite": ["WebBase"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": null,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 85,
+      "icon": { "favicon": "matrixorg.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/32550caf484d80c48d2bfe52c4ab08f1",
       "contenu": {
-        "siege_social": "New Vector Ltd (marque Element). 10 Queen Street Place, London, EC4R 1AG, Royaume-Uni. Matrix.org Foundation C.I.C. (but non lucratif, 2018). Protocole Matrix lancé en 2014.",
-        "actionnariat": "New Vector Ltd privée. Fondateurs : Matthew Hodgson (CEO) et Amandine Le Pape (COO). Série B en 2021, investisseurs : Automattic, Protocol Labs, Notion Capital. Foundation indépendante de New Vector Ltd.",
-        "infrastructure": "Serveur homeserver principal (matrix.org) hébergé via Cloudflare et AWS (régions EU et US). Données pouvant transiter hors UE si matrix.org est utilisé. Auto-hébergement possible : déploiement de homeserver (Synapse, Dendrite) sur infrastructure belge ou européenne. Clients Element hébergés sur CDN globaux (Cloudflare).",
-        "fonctionnalites": [
-          "Messagerie instantanée (1:1 et groupes/salons)",
-          "Appels audio et vidéo (via Element Call / WebRTC)",
-          "Partage de fichiers et médias",
-          "Chiffrement E2EE via le protocole Megolm",
-          "Fédération : interopérabilité entre différents serveurs Matrix",
-          "Bridging : connexion avec Slack, Teams, IRC, Signal, WhatsApp…",
-          "Threads, réactions, édition de messages",
-          "Espaces (Spaces) : organisation hiérarchique des salons",
-          "API ouverte pour intégrations et bots"
-        ],
-        "securite_detail": "Chiffrement E2EE basé sur le protocole Double Ratchet (Olm/Megolm). TLS 1.2/1.3 en transit entre serveurs. Métadonnées (qui parle à qui) visibles côté serveur. SSO (SAML2, OpenID Connect), MFA, révocation de sessions, cross-signing. 2019 : fuite de données matrix.org exposant hashs de mots de passe et tokens d'accès (The Register, ZDNet).",
-        "problemes": [
-          "Siège UK (hors UE post-Brexit) : potentiellement soumis à l'Investigatory Powers Act britannique",
-          "Serveur matrix.org sur AWS US : soumis au CLOUD Act",
-          "Métadonnées (graphe social, timing) visibles côté homeserver même avec E2EE",
-          "Dépendance à Cloudflare (entreprise américaine) pour le CDN",
-          "Difficultés de modération dans un réseau fédéré (2023)",
-          "Conformité DSA complexifiée par la nature fédérée (2024)",
-          "Interface peu intuitive, onboarding difficile",
-          "⚠️ La souveraineté dépend du choix du homeserver : utiliser matrix.org = données hors contrôle belge"
-        ],
-        "avantages_souverains": "Protocole ouvert et décentralisé. Auto-hébergement en Belgique possible : conformité RGPD facilitée. Pas de dépendance à un GAFAM. Interopérabilité native. Reconnu par gouvernements européens : France (Tchap), Allemagne (BwMessenger), Commission Européenne. Code source auditable. CNIL française : validation de Tchap basé sur Matrix (2022).",
-        "cout_detail": "Protocole Matrix open source et gratuit (Apache 2.0). Scénario auto-hébergé : ~120-360 €/an de récurrent. Scénario Element Cloud : ~550-1100 $/an pour 10 users. Coût renseigné pour Spade : 360 €/an.",
-        "migration": "Export de l'historique via API Matrix (format JSON). Messages E2EE restent chiffrés sans les clés (complexité notable). Bridges disponibles pour migrer depuis Slack, Teams. Migration progressive possible. Risque élevé : messages chiffrés E2EE sans clés irrécupérables."
-      },
-      "score": 85
+        "siege_social": "<ul><li><strong>New Vector Ltd</strong> (marque Element) — 10 Queen Street Place, London, EC4R 1AG, Royaume-Uni</li><li><strong>Matrix.org Foundation C.I.C.</strong> (but non lucratif, créée en 2018)</li><li>Protocole Matrix lancé en 2014</li></ul>",
+        "actionnariat": "<ul><li>New Vector Ltd privée</li><li>Fondateurs : <strong>Matthew Hodgson</strong> (CEO) et <strong>Amandine Le Pape</strong> (COO)</li><li>Série B en 2021 — investisseurs : Automattic, Protocol Labs, Notion Capital</li><li>Foundation indépendante de New Vector Ltd</li></ul>",
+        "infrastructure": "<ul><li>Serveur homeserver principal (matrix.org) hébergé via <strong>Cloudflare</strong> et <strong>AWS</strong> (régions EU et US)</li><li>⚠️ Données pouvant transiter hors UE si matrix.org est utilisé</li><li>Auto-hébergement possible : déploiement de homeserver (Synapse, Dendrite) sur infrastructure belge ou européenne</li><li>Clients Element hébergés sur CDN globaux (Cloudflare)</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie instantanée (1:1 et groupes/salons)</li><li>Appels audio et vidéo (via Element Call / WebRTC)</li><li>Partage de fichiers et médias</li><li><strong>Chiffrement E2EE</strong> via le protocole Megolm</li><li>Fédération : interopérabilité entre différents serveurs Matrix</li><li>Bridging : connexion avec Slack, Teams, IRC, Signal, WhatsApp…</li><li>Threads, réactions, édition de messages</li><li>Espaces (Spaces) : organisation hiérarchique des salons</li><li>API ouverte pour intégrations et bots</li></ul>",
+        "securite_detail": "<ul><li>Chiffrement E2EE basé sur le protocole <strong>Double Ratchet</strong> (Olm/Megolm)</li><li>TLS 1.2/1.3 en transit entre serveurs</li><li>⚠️ Métadonnées (qui parle à qui) visibles côté serveur</li><li>SSO (SAML2, OpenID Connect), MFA, révocation de sessions, cross-signing</li><li>⚠️ 2019 : fuite de données matrix.org exposant hashs de mots de passe et tokens d'accès</li></ul>",
+        "problemes": "<ul><li>Siège UK (hors UE post-Brexit) : potentiellement soumis à l'<em>Investigatory Powers Act</em> britannique</li><li>Serveur matrix.org sur AWS US : soumis au CLOUD Act</li><li>Métadonnées (graphe social, timing) visibles côté homeserver même avec E2EE</li><li>Dépendance à Cloudflare (entreprise américaine) pour le CDN</li><li>Difficultés de modération dans un réseau fédéré (2023)</li><li>Conformité DSA complexifiée par la nature fédérée (2024)</li><li>Interface peu intuitive, onboarding difficile</li><li>⚠️ La souveraineté dépend du choix du homeserver : utiliser matrix.org = données hors contrôle belge</li></ul>",
+        "avantages_souverains": "<ul><li>Protocole ouvert et décentralisé</li><li>Auto-hébergement en Belgique possible : conformité RGPD facilitée</li><li>Pas de dépendance à un GAFAM</li><li>Interopérabilité native</li><li>Reconnu par gouvernements européens : France (Tchap), Allemagne (BwMessenger), Commission Européenne</li><li>Code source auditable</li><li>CNIL française : validation de Tchap basé sur Matrix (2022)</li></ul>",
+        "cout_detail": "<ul><li>Protocole Matrix open source et gratuit (Apache 2.0)</li><li>Scénario auto-hébergé : ~120–360 €/an de récurrent</li><li>Scénario Element Cloud : ~550–1 100 $/an pour 10 users</li><li>Coût renseigné pour Spade : <strong>360 €/an</strong></li></ul>",
+        "migration": "<ul><li>Export de l'historique via API Matrix (format JSON)</li><li>⚠️ Messages E2EE restent chiffrés sans les clés (complexité notable)</li><li>Bridges disponibles pour migrer depuis Slack, Teams</li><li>Migration progressive possible</li><li>⚠️ Risque élevé : messages chiffrés E2EE sans clés irrécupérables</li></ul>"
+      }
     },
     {
       "nom": "Stackfield",
@@ -581,57 +318,27 @@
       "nationalite": "🇩🇪",
       "creation": 2013,
       "cout_annuel_eur": 1320,
-      "code_ouvert": null,
-      "serveurs": [
-        "EU"
-      ],
-      "compatibilite": [
-        "WebBase",
-        "iOS",
-        "macOS",
-        "Android"
-      ],
+      "code_ouvert": "Non",
+      "serveurs": ["EU"],
+      "compatibilite": ["WebBase", "iOS", "macOS", "Android"],
       "portabilite": "Satisfaisante",
       "securite": "Fort",
       "ux": 7,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Messagerie professionnelle"
-      },
+      "score": 72,
+      "icon": { "favicon": "stackfield.png" },
+      "challenge": { "role": "challenger", "demarche": "Messagerie professionnelle" },
       "notion_url": "https://www.notion.so/32d50caf484d8039a28de66c699e1969",
       "contenu": {
-        "siege_social": "Stackfield GmbH, Bavariafilmplatz 7, 82031 Grünwald (près de Munich), Bavière, Allemagne. GmbH (équivalent SARL allemande). Fondateurs : Gian Paolo Lombardo, Rodrigo Focosi.",
-        "actionnariat": "Non coté. PME privée. Autofinancement (bootstrapped). Aucun investisseur institutionnel ou fonds VC majeur identifié. Fondateurs apparemment toujours aux commandes. Risque de rachat par acteur non européen non exclu.",
-        "infrastructure": "Centres de données exclusivement en Allemagne. Aucun hyperscaler américain (AWS, Azure, GCP) déclaré. Données localisées en Allemagne par défaut. CLOUD Act : non applicable. FISA 702 : non applicable. ISO 27001 certifié.",
-        "fonctionnalites": [
-          "Messagerie instantanée (chats 1:1 et groupes)",
-          "Appels vidéo et audio intégrés",
-          "Réunions virtuelles avec partage d'écran",
-          "Tableaux Kanban",
-          "Diagrammes de Gantt",
-          "Listes de tâches et sous-tâches avec assignation et dates",
-          "Vue calendrier",
-          "Stockage et partage de fichiers",
-          "Éditeur de documents collaboratif (pages/wikis)",
-          "Gestion des rôles et permissions granulaires",
-          "Invitations de clients externes (guest access)",
-          "API REST et Webhooks"
-        ],
-        "securite_detail": "TLS 1.2/1.3 en transit. AES-256 au repos. Chiffrement E2EE côté client (rare parmi les outils SaaS de collaboration) : Stackfield ne peut pas techniquement accéder au contenu. MFA disponible. SSO via SAML 2.0 (Enterprise). ISO 27001 certifié. DPA disponible. Pas de module IA générative natif (pas d'entraînement sur données clients). SOC 2 Type II et BSI C5 non confirmés publiquement.",
-        "problemes": [
-          "Taille PME : continuité de service sur 5-10 ans moins garantie",
-          "Actionnariat opaque : impossible de vérifier absence d'actionnaire non européen",
-          "SOC 2 Type II et BSI C5 non documentés publiquement",
-          "Écosystème d'intégrations limité comparé à Teams ou Slack",
-          "Pas d'IA générative native",
-          "Support principalement en allemand/anglais",
-          "Linux uniquement via navigateur"
-        ],
-        "avantages_souverains": "Hébergement 100% Allemagne (UE). Absence d'exposition au CLOUD Act. RGPD natif. Chiffrement E2EE réel (rare parmi les outils SaaS). Contrôle des données (export, suppression, portabilité). Fondateurs aux commandes, pas d'actionnaire américain identifié.",
-        "cout_detail": "~8-11 €/user/mois (plan Business, facturation annuelle). Pour 10 collaborateurs : ~1200 €/an. Plan Free disponible (jusqu'à 3 users). Essai gratuit 14 jours.",
-        "migration": "Export des messages (JSON/CSV), fichiers (ZIP), tâches (CSV). Pas d'import natif depuis Slack/Teams. API REST disponible. Recommandations : exports mensuels via API, clause de résiliation en cas de M&A, DPA obligatoire avant déploiement."
-      },
-      "score": 92
+        "siege_social": "<ul><li><strong>Stackfield GmbH</strong> — Bavariafilmplatz 7, 82031 Grünwald (près de Munich), Bavière, Allemagne</li><li>GmbH (équivalent SARL allemande)</li><li>Fondateurs : Gian Paolo Lombardo, Rodrigo Focosi</li></ul>",
+        "actionnariat": "<ul><li>Non coté — PME privée</li><li>Autofinancement (bootstrapped)</li><li>Aucun investisseur institutionnel ou fonds VC majeur identifié</li><li>Fondateurs apparemment toujours aux commandes</li><li>⚠️ Risque de rachat par acteur non européen non exclu</li></ul>",
+        "infrastructure": "<ul><li>Centres de données exclusivement en <strong>Allemagne</strong></li><li>Aucun hyperscaler américain (AWS, Azure, GCP) déclaré</li><li>Données localisées en Allemagne par défaut</li><li>CLOUD Act : <strong>non applicable</strong></li><li>FISA 702 : <strong>non applicable</strong></li><li>ISO 27001 certifié</li></ul>",
+        "fonctionnalites": "<ul><li>Messagerie instantanée (chats 1:1 et groupes)</li><li>Appels vidéo et audio intégrés</li><li>Réunions virtuelles avec partage d'écran</li><li>Tableaux Kanban</li><li>Diagrammes de Gantt</li><li>Listes de tâches et sous-tâches avec assignation et dates</li><li>Vue calendrier</li><li>Stockage et partage de fichiers</li><li>Éditeur de documents collaboratif (pages/wikis)</li><li>Gestion des rôles et permissions granulaires</li><li>Invitations de clients externes (guest access)</li><li>API REST et Webhooks</li></ul>",
+        "securite_detail": "<ul><li>TLS 1.2/1.3 en transit — AES-256 au repos</li><li><strong>Chiffrement E2EE côté client</strong> (rare parmi les outils SaaS de collaboration) : Stackfield ne peut pas techniquement accéder au contenu</li><li>MFA disponible — SSO via SAML 2.0 (Enterprise)</li><li><strong>ISO 27001</strong> certifié — DPA disponible</li><li>Pas de module IA générative natif (pas d'entraînement sur données clients)</li><li>SOC 2 Type II et BSI C5 non confirmés publiquement</li></ul>",
+        "problemes": "<ul><li>Taille PME : continuité de service sur 5–10 ans moins garantie</li><li>Actionnariat opaque : impossible de vérifier absence d'actionnaire non européen</li><li>SOC 2 Type II et BSI C5 non documentés publiquement</li><li>Écosystème d'intégrations limité comparé à Teams ou Slack</li><li>Pas d'IA générative native</li><li>Support principalement en allemand/anglais</li><li>Linux uniquement via navigateur</li></ul>",
+        "avantages_souverains": "<ul><li>Hébergement <strong>100% Allemagne</strong> (UE)</li><li>Absence d'exposition au CLOUD Act</li><li>RGPD natif</li><li>Chiffrement E2EE réel (rare parmi les outils SaaS)</li><li>Contrôle des données (export, suppression, portabilité)</li><li>Fondateurs aux commandes, pas d'actionnaire américain identifié</li></ul>",
+        "cout_detail": "<ul><li>~8–11 €/user/mois (plan Business, facturation annuelle)</li><li>Pour 10 collaborateurs : ~<strong>1 200 €/an</strong></li><li>Plan Free disponible (jusqu'à 3 users)</li><li>Essai gratuit 14 jours</li></ul>",
+        "migration": "<ul><li>Export des messages (JSON/CSV), fichiers (ZIP), tâches (CSV)</li><li>Pas d'import natif depuis Slack/Teams</li><li>API REST disponible</li><li>Recommandations : exports mensuels via API, clause de résiliation en cas de M&amp;A, DPA obligatoire avant déploiement</li></ul>"
+      }
     },
     {
       "nom": "kDrive",
@@ -640,93 +347,26 @@
       "creation": 2023,
       "cout_annuel_eur": 0,
       "code_ouvert": "Non",
-      "serveurs": [
-        "Suisse"
-      ],
-      "compatibilite": [
-        "macOS",
-        "iOS",
-        "WebBase",
-        "Windows"
-      ],
+      "serveurs": ["Suisse"],
+      "compatibilite": ["macOS", "iOS", "WebBase", "Windows"],
       "portabilite": "Importante",
       "securite": "Fort",
       "ux": 8,
-      "challenge": {
-        "role": "challenger",
-        "demarche": "Service cloud"
-      },
+      "score": 78,
+      "icon": { "favicon": "kdrive.png" },
+      "challenge": { "role": "challenger", "demarche": "Service cloud" },
       "notion_url": "https://www.notion.so/31e50caf484d8082aca5d47a693bf82d",
       "contenu": {
-        "siege_social": "Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève - Suisse.",
-        "actionnariat": "L'entreprise appartient à ses employés.",
-        "infrastructure": "Données stockées dans un cloud suisse. Datacenter conçu et hébergé en Suisse, l'un des plus éco-responsables d'Europe.",
-        "fonctionnalites": "Non renseigné dans la fiche.",
-        "securite_detail": "Données clients non revendues. Hors de portée du CLOUD Act américain (cadre juridique suisse). ISO 27001 et ISO 9001. RGPD respecté. Données chiffrées au repos et en transit. Double facteur d'authentification. Sauvegarde automatique. Chaque organisation cloisonnée avec clé de chiffrement unique.",
-        "problemes": "Non renseigné dans la fiche.",
-        "avantages_souverains": "Hébergement suisse. Hors portée du CLOUD Act. Éco-responsable. Appartient à ses employés.",
-        "cout_detail": "Gratuit tant que Spade reste partenaire Infomaniak (revendeur d'hébergements Infomaniak pour ses clients).",
-        "migration": "Non renseigné dans la fiche."
-      },
-      "score": 78
-    },
-    {
-      "nom": "Perplexity.ai",
-      "etat": "backlog",
-      "nationalite": "🇺🇸",
-      "creation": 2022,
-      "cout_annuel_eur": 216,
-      "code_ouvert": "Non",
-      "serveurs": [
-        "AWS",
-        "USA"
-      ],
-      "compatibilite": [
-        "WebBase",
-        "iOS",
-        "Android"
-      ],
-      "portabilite": null,
-      "securite": "Moyen",
-      "ux": 7,
-      "challenge": {
-        "role": null,
-        "demarche": null
-      },
-      "notion_url": "https://www.notion.so/32d50caf484d80149b0ac76a43520168",
-      "contenu": {
-        "siege_social": "Perplexity AI, Inc. 2261 Market Street, Suite 5937, San Francisco, CA 94114, États-Unis. Corporation Delaware. Pas de représentation légale en Europe.",
-        "actionnariat": "Privée non cotée. Valorisation ~9 milliards USD (2024). Investisseurs : SoftBank (~100M$), IVP, NEA, Jeff Bezos (Amazon), NVIDIA, Databricks Ventures. Ancrage américain fort.",
-        "infrastructure": "AWS exclusivement. Régions : US-East (Virginie du Nord) et US-West (Oregon). Pas d'hébergement en Europe. Pas d'option de résidence des données en UE. CDN Cloudflare. Soumis au CLOUD Act.",
-        "fonctionnalites": [
-          "Moteur de recherche conversationnel en langage naturel",
-          "Réponses synthétisées avec sources citées et vérifiables",
-          "Recherche web en temps réel",
-          "Modes Focus : Academic, Writing, Math, Code, YouTube, Reddit",
-          "Génération d'images intégrée",
-          "Upload et analyse de fichiers PDF et images",
-          "Pages Perplexity : mini-rapports structurés et publiables",
-          "API REST pour développeurs",
-          "Perplexity Assistant (mobile)"
-        ],
-        "securite_detail": "TLS 1.2/1.3 en transit. AES-256 au repos sur AWS. MFA uniquement sur Enterprise. SSO SAML/OIDC sur Enterprise uniquement. DPA disponible sur Enterprise uniquement. SOC 2 Type II en cours d'obtention (annoncé 2024). Pas d'ISO 27001. Données de requêtes potentiellement utilisées pour entraîner les modèles (opt-out possible).",
-        "problemes": [
-          "Données hébergées exclusivement sur AWS US",
-          "Soumis au CLOUD Act américain",
-          "Politique de rétention et d'utilisation des données opaque",
-          "Pas de SCC RGPD accessibles en standard",
-          "Aucune autorité de contrôle UE désignée, pas de DPO européen",
-          "Code source fermé",
-          "Scraping non autorisé de presse (Forbes, Wired, The Verge, 2024)",
-          "Résumés inexacts et hallucinations documentés (The Guardian, 2024)",
-          "Contenus sponsorisés intégrés aux réponses (Bloomberg, 2024)",
-          "Valorisation à 9 milliards USD contestée par analystes"
-        ],
-        "avantages_souverains": "Interface disponible en français. Multi-modèles (GPT-4o, Claude, Mistral, Llama). Citations de sources vérifiables. Aucun avantage souverain structurel pour une entreprise belge.",
-        "cout_detail": "Plan Pro : ~18 €/mois/utilisateur. Pour 10 users : ~2160 €/an. Plan Enterprise sur devis. Coût renseigné pour Spade : 216 €/an (1-2 licences Pro probablement). Facturation en USD.",
-        "migration": "Export de l'historique en JSON/texte brut. Pas d'export en masse automatisé (Free et Pro). Format propriétaire difficile à réimporter. Pas d'import depuis solutions concurrentes. Risque vendor lock-in élevé."
-      },
-      "score": 7
+        "siege_social": "<ul><li><strong>Infomaniak Network SA</strong> — Rue Eugène-Marziano 25, 1227 Genève, Suisse</li></ul>",
+        "actionnariat": "<ul><li>L'entreprise appartient à ses employés</li></ul>",
+        "infrastructure": "<ul><li>Données stockées dans un <strong>cloud suisse</strong></li><li>Datacenter conçu et hébergé en Suisse, l'un des plus éco-responsables d'Europe</li></ul>",
+        "fonctionnalites": "<p>Non renseignées en détail dans la fiche.</p>",
+        "securite_detail": "<ul><li>Données clients non revendues</li><li>Hors de portée du <strong>CLOUD Act</strong> (cadre juridique suisse)</li><li>Certifications : <strong>ISO 27001</strong> et ISO 9001</li><li>RGPD respecté</li><li>Données chiffrées au repos et en transit</li><li>Double facteur d'authentification</li><li>Sauvegarde automatique</li><li>Chaque organisation cloisonnée avec clé de chiffrement unique</li></ul>",
+        "problemes": "<p>Non renseignés dans la fiche.</p>",
+        "avantages_souverains": "<ul><li>Hébergement suisse — hors portée du CLOUD Act</li><li>Éco-responsable</li><li>Appartient à ses employés</li></ul>",
+        "cout_detail": "<ul><li><strong>Gratuit</strong> tant que Spade reste partenaire Infomaniak (revendeur d'hébergements Infomaniak pour ses clients)</li></ul>",
+        "migration": "<p>Non renseignée dans la fiche.</p>"
+      }
     }
   ]
 }

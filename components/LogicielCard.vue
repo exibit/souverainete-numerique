@@ -130,6 +130,10 @@ function toList(v: string | string[] | undefined | null): string[] {
 
 const fonctionnalites = computed(() => toList(props.logiciel.contenu?.fonctionnalites))
 const problemes       = computed(() => toList(props.logiciel.contenu?.problemes))
+
+function isHtml(v: string | string[] | undefined | null): v is string {
+  return typeof v === 'string' && /<[a-z][\s\S]*>/i.test(v)
+}
 </script>
 
 <template>
@@ -211,7 +215,7 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
       <!-- Score -->
       <div v-if="logiciel.score != null" class="space-y-1.5">
         <div class="flex items-center justify-between">
-          <span class="text-[12px] text-[#898994]">Score</span>
+          <span class="text-[12px] text-[#898994]">Score de souveraineté</span>
           <span class="text-[12px] font-medium text-[#FB9CA0]">{{ logiciel.score }}/100</span>
         </div>
         <div class="h-1 rounded-full bg-white/10">
@@ -279,13 +283,13 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
             <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-1.5 flex items-center gap-1.5">
               <UIcon name="i-heroicons-building-office-2" class="w-3.5 h-3.5" /> Siège social
             </h3>
-            <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.siege_social }}</p>
+            <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.siege_social" />
           </div>
           <div v-if="logiciel.contenu?.actionnariat">
             <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-1.5 flex items-center gap-1.5">
               <UIcon name="i-heroicons-chart-pie" class="w-3.5 h-3.5" /> Actionnariat
             </h3>
-            <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.actionnariat }}</p>
+            <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.actionnariat" />
           </div>
         </div>
 
@@ -293,17 +297,18 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-server" class="w-3.5 h-3.5" /> Infrastructure
           </h3>
-          <p class="text-base text-zinc-300 leading-relaxed mb-2">{{ logiciel.contenu.infrastructure }}</p>
+          <div class="rich-text text-base text-zinc-300 leading-relaxed mb-2" v-html="logiciel.contenu.infrastructure" />
           <div v-if="logiciel.serveurs?.length" class="flex flex-wrap gap-1">
             <span v-for="s in logiciel.serveurs" :key="s" :class="serverClass(s)">{{ s }}</span>
           </div>
         </div>
 
-        <div v-if="fonctionnalites.length" class="px-6 py-5">
+        <div v-if="logiciel.contenu?.fonctionnalites" class="px-6 py-5">
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-sparkles" class="w-3.5 h-3.5" /> Fonctionnalités
           </h3>
-          <ul class="space-y-1.5">
+          <div v-if="isHtml(logiciel.contenu.fonctionnalites)" class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.fonctionnalites" />
+          <ul v-else class="space-y-1.5">
             <li v-for="(f, i) in fonctionnalites" :key="i" class="flex items-start gap-2 text-base text-zinc-300">
               <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0 bg-white/60" />
               {{ f }}
@@ -317,14 +322,15 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
             Sécurité
             <span v-if="logiciel.securite" :class="secBadgeClass(logiciel.securite)">{{ logiciel.securite }}</span>
           </h3>
-          <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.securite_detail }}</p>
+          <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.securite_detail" />
         </div>
 
-        <div v-if="problemes.length" class="px-6 py-5">
+        <div v-if="logiciel.contenu?.problemes" class="px-6 py-5">
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-exclamation-triangle" class="w-3.5 h-3.5" /> Points d'attention
           </h3>
-          <ul class="space-y-1.5">
+          <div v-if="isHtml(logiciel.contenu.problemes)" class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.problemes" />
+          <ul v-else class="space-y-1.5">
             <li v-for="(p, i) in problemes" :key="i" class="flex items-start gap-2 text-base text-zinc-300">
               <span class="w-1 h-1 rounded-full mt-2 flex-shrink-0 bg-white/60" />
               {{ p }}
@@ -336,21 +342,21 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-shield-check" class="w-3.5 h-3.5" /> Avantages souverains
           </h3>
-          <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.avantages_souverains }}</p>
+          <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.avantages_souverains" />
         </div>
 
         <div v-if="logiciel.contenu?.cout_detail" class="px-6 py-5">
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-banknotes" class="w-3.5 h-3.5" /> Coût
           </h3>
-          <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.cout_detail }}</p>
+          <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.cout_detail" />
         </div>
 
         <div v-if="logiciel.contenu?.migration" class="px-6 py-5">
           <h3 class="text-[13px] font-normal uppercase tracking-widest text-white mb-2 flex items-center gap-1.5">
             <UIcon name="i-heroicons-arrow-path" class="w-3.5 h-3.5" /> Migration
           </h3>
-          <p class="text-base text-zinc-300 leading-relaxed">{{ logiciel.contenu.migration }}</p>
+          <div class="rich-text text-base text-zinc-300 leading-relaxed" v-html="logiciel.contenu.migration" />
         </div>
 
 
@@ -358,3 +364,34 @@ const problemes       = computed(() => toList(props.logiciel.contenu?.problemes)
     </div>
   </USlideover>
 </template>
+
+<style scoped>
+.rich-text :deep(ul) {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+  space-y: 0.25rem;
+}
+.rich-text :deep(ol) {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+}
+.rich-text :deep(li) {
+  margin-bottom: 0.25rem;
+}
+.rich-text :deep(p) {
+  margin-bottom: 0.5rem;
+}
+.rich-text :deep(p:last-child) {
+  margin-bottom: 0;
+}
+.rich-text :deep(strong) {
+  color: #fff;
+  font-weight: 600;
+}
+.rich-text :deep(a) {
+  color: rgba(255,255,255,0.7);
+  text-decoration: underline;
+}
+</style>

@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     primary: 'amber',
     gray: 'zinc'
   },
+  icon: {
+    clientBundle: {
+      scan: true
+    }
+  },
   app: {
     baseURL: '/souverainete',
     head: {

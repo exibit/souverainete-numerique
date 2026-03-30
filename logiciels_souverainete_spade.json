@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27",
+  "generated_at": "2026-03-30",
   "source": "Notion > Souveraineté > Logiciels",
   "note": "Fiches exclues : NextCloud (assignée mais vide), Adobe (⏰), Google Drive (⏰), Gmail (⏰), Perplexity.ai (aucune démarche associée)",
   "note_favicons": "Les favicons sont référencées par nom de fichier dans le champ icon.favicon de chaque logiciel. Le répertoire favicons-logiciels/ doit être alimenté manuellement en récupérant les icônes depuis les fiches Notion correspondantes.",

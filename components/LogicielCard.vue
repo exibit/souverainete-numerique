@@ -41,7 +41,8 @@ const router = useRouter()
 
 const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
 
-onMounted(() => {
+onMounted(async () => {
+  await router.isReady()
   if (route.query.logiciel === slug.value && props.logiciel.contenu) {
     isOpen.value = true
   }

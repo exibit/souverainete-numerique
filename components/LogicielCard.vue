@@ -36,9 +36,6 @@ const props = defineProps<{
 
 const isOpen = ref(false)
 
-const route = useRoute()
-const router = useRouter()
-
 const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
 
 onMounted(() => {
@@ -49,13 +46,13 @@ onMounted(() => {
 })
 
 watch(isOpen, (val) => {
+  const url = new URL(window.location.href)
   if (val) {
-    router.replace({ query: { ...route.query, logiciel: slug.value } })
+    url.searchParams.set('logiciel', slug.value)
   } else {
-    const q = { ...route.query }
-    delete q.logiciel
-    router.replace({ query: q })
+    url.searchParams.delete('logiciel')
   }
+  history.replaceState(history.state, '', url.toString())
 })
 
 // Carte blanche = logiciel actif

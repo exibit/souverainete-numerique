@@ -34,6 +34,13 @@ Le fichier `logiciels_souverainete_spade.json` contient la liste des logiciels �
 
 Chaque logiciel dispose d'un score sur 100, d'indicateurs (open source, sécurité, portabilité) et d'une fiche détaillée (siège social, actionnariat, infrastructure, fonctionnalités, points d'attention…).
 
+Démarches couvertes (mise à jour 2026-04-08) :
+
+- **Messagerie professionnelle**
+- **Service cloud**
+- **Prototypage UI**
+- **Repository**
+
 ## Lancer le projet
 
 ```bash

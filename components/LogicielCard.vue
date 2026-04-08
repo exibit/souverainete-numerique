@@ -41,9 +41,9 @@ const router = useRouter()
 
 const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
 
-onMounted(async () => {
-  await router.isReady()
-  if (route.query.logiciel === slug.value && props.logiciel.contenu) {
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  if (params.get('logiciel') === slug.value && props.logiciel.contenu) {
     isOpen.value = true
   }
 })

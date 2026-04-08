@@ -35,17 +35,20 @@ const props = defineProps<{
 }>()
 
 const isOpen = ref(false)
+let fromUrl = false
 
 const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
 
 onMounted(() => {
   const params = new URLSearchParams(window.location.search)
   if (params.get('logiciel') === slug.value && props.logiciel.contenu) {
+    fromUrl = true
     isOpen.value = true
   }
 })
 
 watch(isOpen, (val) => {
+  if (fromUrl) { fromUrl = false; return }
   const url = new URL(window.location.href)
   if (val) {
     url.searchParams.set('logiciel', slug.value)

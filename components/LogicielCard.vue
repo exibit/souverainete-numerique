@@ -1,3 +1,11 @@
+<script lang="ts">
+// Capturé au moment où le module JS est chargé, AVANT que Vue Router
+// ne fasse router.replace() pendant l'hydratation SSG (qui efface le query string)
+const _INITIAL_LOGICIEL = typeof window !== 'undefined'
+  ? new URLSearchParams(window.location.search).get('logiciel')
+  : null
+</script>
+
 <script setup lang="ts">
 interface Contenu {
   siege_social?: string
@@ -35,20 +43,16 @@ const props = defineProps<{
 }>()
 
 const isOpen = ref(false)
-let fromUrl = false
 
 const slug = computed(() => props.logiciel.nom.toLowerCase().replace(/\s+/g, '-'))
 
 onMounted(() => {
-  const params = new URLSearchParams(window.location.search)
-  if (params.get('logiciel') === slug.value && props.logiciel.contenu) {
-    fromUrl = true
+  if (_INITIAL_LOGICIEL === slug.value && props.logiciel.contenu) {
     isOpen.value = true
   }
 })
 
 watch(isOpen, (val) => {
-  if (fromUrl) { fromUrl = false; return }
   const url = new URL(window.location.href)
   if (val) {
     url.searchParams.set('logiciel', slug.value)
@@ -139,7 +143,7 @@ function isHtml(v: string | string[] | undefined | null): v is string {
 
 <template>
   <!-- ── Card ── -->
-  <div
+<div
     class="rounded-xl border transition-all duration-200 hover:-translate-y-0.5 h-full flex flex-col group"
     :class="[
       isActive
@@ -238,6 +242,7 @@ function isHtml(v: string | string[] | undefined | null): v is string {
   </div>
 
   <!-- ── Detail Slideover ── -->
+  <ClientOnly>
   <USlideover v-model="isOpen" side="right" :ui="{ width: 'max-w-xl', overlay: { background: 'backdrop-blur-sm bg-black/60' } }">
     <div class="flex flex-col h-full overflow-hidden" style="background:#0312B3">
 
@@ -364,6 +369,7 @@ function isHtml(v: string | string[] | undefined | null): v is string {
       </div>
     </div>
   </USlideover>
+  </ClientOnly>
 </template>
 
 <style scoped>
